@@ -1,0 +1,29 @@
+{
+    "framework": "laravel",
+    "buildCommand": "npm run build",
+    "installCommand": "composer install --no-interaction --optimize-autoloader && npm install",
+    "outputDirectory": "public",
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.1"
+        }
+    },
+    "routes": [
+        {
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/storage/(.*)",
+            "dest": "/storage/$1"
+        },
+        {
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ]
+}
