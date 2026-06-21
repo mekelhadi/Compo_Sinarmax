@@ -62,11 +62,7 @@ class FrontController extends Controller
     }
 
     public function news(){
-        try {
-            return view('front.news');
-        } catch (\Throwable $e) {
-            return response('NEWS ERROR: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine(), 500);
-        }
+        return view('front.news');
     }
     public function news_details1($slug = null){
         return view('front.news_details1',);
