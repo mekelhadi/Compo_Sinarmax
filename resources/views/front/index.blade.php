@@ -19,15 +19,15 @@
               <input type="hidden" id="path_video" name="path_video" value="{{ $hero->path_video }}">
 
               <div class="inline-flex items-center bg-white px-4 py-2 gap-2 rounded-full border border-[#E8EAF2]">
-                <p class="font-semibold text-sm">{{ $hero->achievement }}</p>
+                <p class="font-semibold text-sm">{{ app()->getLocale() === 'id' ? __('home.hero_achievement') : $hero->achievement }}</p>
               </div>
 
               <div class="mt-4 space-y-3">
                 <h1 class="font-extrabold text-[34px] leading-[42px] md:text-[44px] md:leading-[56px]">
-                  {{ $hero->heading }}
+                  {{ app()->getLocale() === 'id' ? __('home.hero_heading') : $hero->heading }}
                 </h1>
                 <p class="text-cp-light-grey leading-7 max-w-[520px]">
-                  {{ $hero->subheading }}
+                  {{ app()->getLocale() === 'id' ? __('home.hero_subheading') : $hero->subheading }}
                 </p>
               </div>
 

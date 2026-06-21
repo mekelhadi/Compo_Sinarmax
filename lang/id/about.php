@@ -33,4 +33,17 @@ return [
     // Organization
     'org_title_line1' => 'Struktur',
     'org_title_line2' => 'Organisasi',
+
+    // Database-driven content (locale override)
+    'name_3' => 'Tentang Kami',
+    'name_4' => 'Visi dan Misi',
+
+    'kp_9' => 'PT Abadi Banua Cemerlang adalah perusahaan terkemuka dalam perakitan dan pengembangan lampu jalan LED (PJU) dan lampu jalan tenaga surya, yang beroperasi di bawah merek Sinarmax sejak tahun 2015.',
+    'kp_10' => 'Kami berkomitmen untuk menyediakan produk pencahayaan yang berkualitas tinggi, inovatif, dan ramah lingkungan yang memenuhi kebutuhan infrastruktur, industri, dan masyarakat di seluruh Indonesia.',
+    'kp_11' => 'Fasilitas kami dilengkapi dengan lini perakitan modern, laboratorium pengujian kualitas, dan tim profesional yang berdedikasi untuk memastikan setiap produk memenuhi standar tertinggi Kualitas, Biaya, dan Pengiriman (QCD).',
+    'kp_12' => 'Pada tahun 2023, kami meraih sertifikasi ISO 9001:2015, memperkuat komitmen kami terhadap sistem manajemen mutu dan perbaikan berkelanjutan.',
+    'kp_13' => 'Visi: Menjadi perusahaan lampu jalan LED terkemuka di Indonesia yang menghasilkan solusi pencahayaan berkualitas kelas dunia.',
+    'kp_14' => 'Misi: Memproduksi produk pencahayaan yang inovatif dan hemat energi melalui keunggulan Kualitas, Biaya, dan Pengiriman.',
+    'kp_15' => 'Misi: Terus meningkatkan kemampuan sumber daya manusia dan mengutamakan keselamatan, kesehatan, dan kelestarian lingkungan karyawan.',
+    'kp_16' => 'Misi: Berkontribusi pada pembangunan nasional dengan menyediakan solusi infrastruktur pencahayaan yang andal dan berkelanjutan.',
 ];

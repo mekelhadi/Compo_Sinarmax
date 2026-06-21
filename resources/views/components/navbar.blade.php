@@ -62,15 +62,13 @@
 
           <div x-show="langOpen"
                @click.outside="langOpen = false"
-               class="absolute right-0 mt-2 w-36 bg-white border rounded-lg shadow-lg">
+               class="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg">
 
-            @if($cur === 'id')
-            <a href="{{ route('lang.switch','en') }}"
-               class="block px-3 py-2 hover:bg-gray-100">English</a>
-            @else
             <a href="{{ route('lang.switch','id') }}"
-               class="block px-3 py-2 hover:bg-gray-100">Bahasa Indonesia</a>
-            @endif
+               class="block px-3 py-2 hover:bg-gray-100 {{ $cur === 'id' ? 'font-bold' : '' }}">Bahasa Indonesia</a>
+
+            <a href="{{ route('lang.switch','en') }}"
+               class="block px-3 py-2 hover:bg-gray-100 {{ $cur === 'en' ? 'font-bold' : '' }}">English</a>
           </div>
         </div>
 
@@ -128,11 +126,18 @@
 
       </ul>
 
-      <div class="mt-4">
+      <div class="mt-4 flex gap-2">
         <a href="{{ route('front.appointment') }}"
-           class="block text-center bg-cp-dark-blue text-white py-3 rounded-xl">
+           class="block flex-1 text-center bg-cp-dark-blue text-white py-3 rounded-xl">
           Contact
         </a>
+      </div>
+
+      <div class="mt-3 flex gap-2 border-t pt-3">
+        <a href="{{ route('lang.switch','id') }}"
+           class="flex-1 text-center py-2 rounded-lg border {{ $cur === 'id' ? 'bg-cp-dark-blue text-white font-bold' : 'text-gray-600' }}">Bahasa Indonesia</a>
+        <a href="{{ route('lang.switch','en') }}"
+           class="flex-1 text-center py-2 rounded-lg border {{ $cur === 'en' ? 'bg-cp-dark-blue text-white font-bold' : 'text-gray-600' }}">English</a>
       </div>
 
     </div>

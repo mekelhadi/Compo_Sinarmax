@@ -59,12 +59,13 @@
         </div>
 
         <div class="w-full lg:w-1/2">
-          <h2 class="text-2xl font-bold">{{ $about->name }}</h2>
+          @php $isId = app()->getLocale() === 'id'; @endphp
+          <h2 class="text-2xl font-bold">{{ $isId ? __("about.name_{$about->id}") : $about->name }}</h2>
 
           @if($about->keypoints && $about->keypoints->count())
             <ul class="mt-4 space-y-2">
               @foreach($about->keypoints as $keypoint)
-                <li>{{ $keypoint->keypoint }}</li>
+                <li>{{ $isId ? __("about.kp_{$keypoint->id}") : $keypoint->keypoint }}</li>
               @endforeach
             </ul>
           @endif

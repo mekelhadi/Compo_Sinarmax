@@ -7,6 +7,9 @@ return [
 
     // HERO
     'hero_alt'    => 'Banner utama',
+    'hero_heading' => 'Selamat Datang di PT Abadi Banua Cemerlang',
+    'hero_subheading' => 'Memproduksi produk melalui Kualitas, Biaya, dan Pengiriman yang memenuhi kepuasan pelanggan.',
+    'hero_achievement' => 'Industri Perakitan Lampu Jalan LED Berdiri Sejak 2015',
     'no_updates'  => 'Belum ada update data terbaru',
     'cta_services'=> 'Layanan Kami',
     'cta_explore' => 'Jelajahi',

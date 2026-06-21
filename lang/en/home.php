@@ -7,6 +7,9 @@ return [
 
     // HERO
     'hero_alt'    => 'Main banner',
+    'hero_heading' => 'Welcome to PT Abadi Banua Cemerlang',
+    'hero_subheading' => 'Producing products through Quality, Cost and Delivery that meet customer satisfaction.',
+    'hero_achievement' => 'LED Street Lighting Assembly Industry Established in 2015',
     'no_updates'  => 'No latest updates available',
     'cta_services'=> 'Our Services',
     'cta_explore' => 'Explore',
