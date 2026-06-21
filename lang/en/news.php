@@ -1,7 +1,7 @@
 <?php
 return [
-    'meta_title'       => 'News | PT Eran Plastindo Utama',
-    'meta_description' => 'Latest updates from PT Eran Plastindo Utama: manufacturing insights, facility upgrades, and company activities.',
+    'meta_title'       => 'News | PT Abadi Benua Cermelang',
+    'meta_description' => 'Latest updates from PT Abadi Benua Cermelang: manufacturing insights, facility upgrades, and company activities.',
 
     'breadcrumb_home' => 'Home',
     'breadcrumb_news' => 'News',

@@ -39,7 +39,7 @@ return [
     'share'     => 'Bagikan:',
 
     // Author box
-    'author_desc' => 'Berbagi kabar dan cerita dari PT Eran Plastindo Utama.',
+    'author_desc' => 'Berbagi kabar dan cerita dari PT Abadi Benua Cermelang.',
 
     // Comments
     'comments_title'      => 'Komentar Terbaru',

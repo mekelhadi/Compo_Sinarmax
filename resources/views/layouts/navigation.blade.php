@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
                         <img src="{{ asset('assets/logo/sinarmax.png') }}"
-                        alt="Eran Plastindo" class="h-8 w-auto">
+                        alt="PT Abadi Benua Cermelang" class="h-8 w-auto">
                         <span class="hidden sm:inline font-semibold">PT Abadi Banua Cemerlang</span>
                     </a>
                 </div>

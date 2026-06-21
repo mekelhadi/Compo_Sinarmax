@@ -169,7 +169,7 @@ CREATE TABLE `hero_sections` (
 --
 
 INSERT INTO `hero_sections` (`id`, `achievement`, `subheading`, `heading`, `path_video`, `banner`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Plastic Injection Industry Established in January 2020', 'Producing products through Quality. Cost and Delivery that meet costumer satisfaction.', 'Welcome to PT.Eran Plastindo Utama', '-jT_DVytzUU?si=kcBPSJkMgqUUkvgz', 'banners/9vTv9uCNG0kWKgc6Z5Sn3syGZRPrWo3caSjHIMIJ.png', NULL, '2025-10-20 07:11:35', '2025-10-20 07:11:48');
+(1, 'LED Street Lighting Assembly Industry Established in 2015', 'Producing products through Quality. Cost and Delivery that meet costumer satisfaction.', 'Welcome to PT.Abadi Banua Cermelang', '-jT_DVytzUU?si=kcBPSJkMgqUUkvgz', 'banners/9vTv9uCNG0kWKgc6Z5Sn3syGZRPrWo3caSjHIMIJ.png', NULL, '2025-10-20 07:11:35', '2025-10-20 07:11:48');
 
 -- --------------------------------------------------------
 
@@ -367,9 +367,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `about`, `thumbnail`, `tagline`, `name`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Automotive Motor Cycle Parts', 'thumbnails/BdwMmld5zQ5n0aobMhYUAWCdOicyLTbQCrzm78Sh.png', 'PT. Eran Plastindo Utama', 'Automotive (Motor Cycle) parts', NULL, '2025-10-20 07:05:46', '2025-10-20 07:05:46'),
-(2, '1. Grip Handle Bracket\r\n(Daihatsu Xenia)\r\n2. Cover, Parking Brake Hole\r\n(Hino Truck)\r\n3. Grip Parking Brake Lever\r\n(Daihatsu Gran Max)', 'thumbnails/9s6aPPTE0eWs5EW4FeYoMgqRvMjh1rIB7l0Imf9E.png', 'PT. Eran Plastindo Utama', 'Automotive (Vehicle) parts', NULL, '2025-10-20 07:06:34', '2025-10-20 07:06:34'),
-(3, '1. Switch Cover\r\n(Rice Cooker)\r\n2. Gauge Hopper\r\n(Rice Box)\r\n3. Switch Box\r\n(Electric Fan)\r\n4. Stand Base\r\n(Electric Fan)', 'thumbnails/veJkk5qfe4BY3MtMkssszuSCO41ptRwTDAT3DBfl.png', 'PT. Eran Plastindo Utama', 'Home Appliance', NULL, '2025-10-20 07:07:15', '2025-10-20 07:07:15');
+(1, 'Automotive Motor Cycle Parts', 'thumbnails/BdwMmld5zQ5n0aobMhYUAWCdOicyLTbQCrzm78Sh.png', 'PT. Abadi Benua Cermelang', 'Automotive (Motor Cycle) parts', NULL, '2025-10-20 07:05:46', '2025-10-20 07:05:46'),
+(2, '1. Grip Handle Bracket\r\n(Daihatsu Xenia)\r\n2. Cover, Parking Brake Hole\r\n(Hino Truck)\r\n3. Grip Parking Brake Lever\r\n(Daihatsu Gran Max)', 'thumbnails/9s6aPPTE0eWs5EW4FeYoMgqRvMjh1rIB7l0Imf9E.png', 'PT. Abadi Benua Cermelang', 'Automotive (Vehicle) parts', NULL, '2025-10-20 07:06:34', '2025-10-20 07:06:34'),
+(3, '1. Switch Cover\r\n(Rice Cooker)\r\n2. Gauge Hopper\r\n(Rice Box)\r\n3. Switch Box\r\n(Electric Fan)\r\n4. Stand Base\r\n(Electric Fan)', 'thumbnails/veJkk5qfe4BY3MtMkssszuSCO41ptRwTDAT3DBfl.png', 'PT. Abadi Benua Cermelang', 'Home Appliance', NULL, '2025-10-20 07:07:15', '2025-10-20 07:07:15');
 
 -- --------------------------------------------------------
 

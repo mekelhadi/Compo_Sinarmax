@@ -1,6 +1,6 @@
 <?php
 return [
-    'meta_title'       => 'News – PT Eran Plastindo Utama',
+    'meta_title'       => 'News – PT Abadi Benua Cermelang',
     'meta_description' => 'Ministry of Industry collaborates with JICA to accelerate digitalization for automotive component SMEs: productivity, quality, and supply-chain visibility.',
     'og_title'         => 'Ministry of Industry & JICA Accelerate Digitalization of Automotive Component SMEs',
     'og_description'   => 'Focus on smart manufacturing practices, digital QC, and supplier readiness to meet OEM standards.',

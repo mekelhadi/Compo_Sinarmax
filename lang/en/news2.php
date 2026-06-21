@@ -1,6 +1,6 @@
 <?php
 return [
-    'meta_title'       => 'News – PT Eran Plastindo Utama',
+    'meta_title'       => 'News – PT Abadi Benua Cermelang',
     'meta_description' => 'Supply Chain Financing collaboration to strengthen suppliers and automotive SMEs: better access to financing and operational resilience.',
     'og_title'         => 'Strengthening the Supply Chain Through Supply Chain Financing',
     'og_description'   => 'Collaboration between PT Astra Mitra Ventura & PT Astra Otoparts Tbk to expand suppliers’ financing access.',

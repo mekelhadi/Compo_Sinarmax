@@ -1,6 +1,6 @@
 <?php
 return [
-    'meta_title'       => 'News – PT Eran Plastindo Utama',
+    'meta_title'       => 'News – PT Abadi Benua Cermelang',
     'meta_description' => 'Automotive SMEs strengthen competitiveness through education and collaboration: efficiency, productivity, and innovation.',
     'og_title'         => 'Automotive SMEs Strengthen Competitiveness Through Education & Collaboration',
     'og_description'   => 'Training and mentoring drive efficiency, productivity, and innovation for automotive component SMEs.',
@@ -39,7 +39,7 @@ return [
     'share'     => 'Share:',
 
     // Author box
-    'author_desc' => 'Sharing updates and stories from PT Eran Plastindo Utama.',
+    'author_desc' => 'Sharing updates and stories from PT Abadi Benua Cermelang.',
 
     // Comments
     'comments_title'      => 'Recent Comments',
