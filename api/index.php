@@ -22,6 +22,15 @@ if ($isVercel) {
 
     putenv('DB_DATABASE=' . $tmpDb);
     putenv('DB_CONNECTION=sqlite');
+    putenv('APP_CONFIG_CACHE=/tmp/config.php');
+    putenv('APP_EVENTS_CACHE=/tmp/events.php');
+    putenv('APP_PACKAGES_CACHE=/tmp/packages.php');
+    putenv('APP_ROUTES_CACHE=/tmp/routes.php');
+    putenv('APP_SERVICES_CACHE=/tmp/services.php');
+    putenv('VIEW_COMPILED_PATH=/tmp/views');
+    putenv('CACHE_DRIVER=array');
+    putenv('LOG_CHANNEL=stderr');
+    putenv('SESSION_DRIVER=cookie');
 
     $storageDirs = [
         'storage/framework/cache/data',
@@ -49,4 +58,11 @@ if ($tmp !== null) {
     $app->useStoragePath($tmp . '/storage');
 }
 
-$app->handleRequest(Request::capture());
+try {
+    $app->handleRequest(Request::capture());
+} catch (\Throwable $e) {
+    http_response_code(500);
+    header('Content-Type: text/plain');
+    echo get_class($e) . ': ' . $e->getMessage() . PHP_EOL;
+    echo $e->getFile() . ':' . $e->getLine() . PHP_EOL;
+}
