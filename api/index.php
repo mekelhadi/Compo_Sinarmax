@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('LARAVEL_START')) {
-    define('LARAVEL_START', microtime(true));
-}
-
 $isVercel = getenv('VERCEL') ?: getenv('VERCEL_ENV') ?: false;
 
 if ($isVercel) {
