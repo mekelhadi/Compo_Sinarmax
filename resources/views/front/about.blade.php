@@ -50,7 +50,7 @@
       <article class="flex flex-col lg:flex-row gap-8">
 
         <div class="w-full lg:w-1/2">
-          <img src="{{ Storage::url($about->thumbnail) }}" class="rounded-xl w-full">
+          <img src="{{ $about->thumbnail ? Storage::url($about->thumbnail) : asset('assets/Images/Diversifikasi.png') }}" class="rounded-xl w-full">
         </div>
 
         <div class="w-full lg:w-1/2">
