@@ -13,6 +13,7 @@ if (isset($_SERVER['VERCEL'])) $isVercel = true;
 if ($isVercel) {
     $tmp = '/tmp/laravel';
     @mkdir($tmp, 0777, true);
+    @mkdir('/tmp/views', 0777, true);
 
     $tmpDb = $tmp . '/database.sqlite';
     $srcDb = __DIR__ . '/../database/database.sqlite';
@@ -63,6 +64,9 @@ try {
 } catch (\Throwable $e) {
     http_response_code(500);
     header('Content-Type: text/plain');
+    echo "=== ERROR ===\n";
     echo get_class($e) . ': ' . $e->getMessage() . PHP_EOL;
     echo $e->getFile() . ':' . $e->getLine() . PHP_EOL;
+    echo "\n=== TRACE ===\n";
+    echo $e->getTraceAsString() . PHP_EOL;
 }
