@@ -73,7 +73,8 @@
         </div>
 
         {{-- CTA --}}
-        <a href="{{ route('front.appointment') }}"
+        <a href="https://wa.me/62882019079653?text=Halo%20kak%2Csaya%20ingin%20menanyakan%20tentang%20produk%20dari%20PT.Sinarmax"
+           target="_blank" rel="noopener noreferrer"
            class="bg-cp-dark-blue text-white font-bold rounded-xl px-5 py-3 hover:shadow-lg">
           {{ __('messages.contact') }}
         </a>
@@ -127,9 +128,10 @@
       </ul>
 
       <div class="mt-4 flex gap-2">
-        <a href="{{ route('front.appointment') }}"
+        <a href="https://wa.me/62882019079653?text=Halo%20kak%2Csaya%20ingin%20menanyakan%20tentang%20produk%20dari%20PT.Sinarmax"
+           target="_blank" rel="noopener noreferrer"
            class="block flex-1 text-center bg-cp-dark-blue text-white py-3 rounded-xl">
-          Contact
+          {{ __('messages.contact') }}
         </a>
       </div>
 
