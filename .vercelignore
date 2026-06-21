@@ -1,0 +1,7 @@
+node_modules
+.git
+tests
+storage/logs
+storage/framework/cache/data
+storage/framework/testing
+storage/debugbar
