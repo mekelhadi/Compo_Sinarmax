@@ -1,9 +1,9 @@
 <?php
 return [
-    'meta_title'       => 'News – PT Abadi Benua Cermelang',
-    'meta_description' => 'Automotive SMEs strengthen competitiveness through education and collaboration: efficiency, productivity, and innovation.',
-    'og_title'         => 'Automotive SMEs Strengthen Competitiveness Through Education & Collaboration',
-    'og_description'   => 'Training and mentoring drive efficiency, productivity, and innovation for automotive component SMEs.',
+    'meta_title'       => 'News – PT Abadi Banua Cemerlang',
+    'meta_description' => 'PT Abadi Banua Cemerlang achieves ISO 9001:2015 certification, strengthening its position as a leading LED street lighting assembly company.',
+    'og_title'         => 'PT Abadi Banua Cemerlang Achieves ISO 9001:2015 Certification',
+    'og_description'   => 'A milestone in quality management for Indonesia\'s LED street lighting industry.',
 
     // Breadcrumb
     'breadcrumb_home'   => 'Home',
@@ -11,41 +11,41 @@ return [
     'breadcrumb_details'=> 'Details',
 
     // Cover
-    'cover_alt' => 'Education & collaboration program for automotive SMEs',
+    'cover_alt' => 'PT Abadi Banua Cemerlang ISO 9001:2015 certification ceremony',
 
     // Article
-    'title'      => 'Automotive SMEs Strengthen Competitiveness Through Education & Collaboration',
-    'author'     => 'Khaerul Izan',
-    'date_display' => 'Nov 22, 2023',
-    'read_time'  => '⏱️ 4–6 min read',
-    'comments_count' => '💬 12 Comments',
+    'title'      => 'PT Abadi Banua Cemerlang Achieves ISO 9001:2015 Certification, Strengthening Position as Leading LED Street Lighting Company',
+    'author'     => 'Tim Sinarmax',
+    'date_display' => 'Jan 15, 2025',
+    'read_time'  => '⏱️ 3–5 min read',
+    'comments_count' => '💬 8 Comments',
 
-    'p1' => 'Automotive SMEs in Indonesia are advancing through education programs focused on efficiency, productivity, and innovation—helping them qualify as trusted partners for large industries.',
-    'p2_html' => 'The <strong>IKM Closed Loop</strong> program, initiated by Kadin Indonesia in collaboration with the Ministry of Industry and Astra International (via Yayasan Dharma Bhakti Astra), provides intensive training and mentoring for SME players in the automotive sector.',
-    'quote' => '“Through this program, we learned how to build efficient, productive, and innovative companies that meet the strict standards of major industries,” said one SME entrepreneur who now successfully partners with big automotive companies.',
+    'p1' => 'PT Abadi Banua Cemerlang, the company behind the Sinarmax brand, has officially achieved ISO 9001:2015 certification — a significant milestone that underscores our commitment to quality management excellence in the LED street lighting industry.',
+    'p2_html' => 'The certification, awarded after a rigorous audit process, covers our entire quality management system — from raw material procurement and assembly processes to final product testing and after-sales service. <strong>This achievement reflects our dedication to continuous improvement and customer satisfaction.</strong>',
+    'quote' => '“ISO 9001:2015 certification is not just a certificate on the wall. It represents our promise to consistently deliver products and services that meet the highest quality standards,” said the management of PT Abadi Banua Cemerlang.',
     'highlights_title' => 'Key Highlights',
-    'hl1' => 'Education in efficiency, productivity, and innovation is crucial for SME growth.',
-    'hl2' => 'Partnerships with large industries require high standards in cost, quality, and delivery.',
-    'hl3' => 'Training covers 5S/5R, EHS, technical skills, marketing, and financial management.',
-    'hl4' => 'Regular reviews and MoU monitoring ensure SMEs can progress to the next level.',
-    'p3'  => 'According to Kadin Indonesia, this collaboration builds a more inclusive SME ecosystem, enabling long-term growth and competitiveness for local industries.',
+    'hl1' => 'Successfully passed comprehensive audit covering all operational processes.',
+    'hl2' => 'Certified quality management system aligned with international standards.',
+    'hl3' => 'Strengthens position as a trusted partner for government and private infrastructure projects.',
+    'hl4' => 'Commitment to continuous improvement in product quality and customer service.',
+    'p3'  => 'With this certification, PT Abadi Banua Cemerlang is well-positioned to expand its market reach and contribute to Indonesia\'s national infrastructure development through reliable and high-quality LED street lighting solutions.',
 
-    'figure_alt'     => 'Training session and quality inspection area',
-    'figure_caption' => 'Automotive SMEs Strengthen Competitiveness Through Education & Collaboration',
+    'figure_alt'     => 'Quality testing laboratory at PT Abadi Banua Cemerlang facility',
+    'figure_caption' => 'Quality testing laboratory — ensuring every Sinarmax product meets the highest standards.',
 
     // Tags & share
     'tags'      => 'Tags:',
-    'tags_list' => ['Kadin', 'Ministry of Industry', 'Industry'],
+    'tags_list' => ['ISO 9001', 'Quality', 'Certification', 'Sinarmax'],
     'share'     => 'Share:',
 
     // Author box
-    'author_desc' => 'Sharing updates and stories from PT Abadi Benua Cermelang.',
+    'author_desc' => 'Official news and updates from PT Abadi Banua Cemerlang.',
 
     // Comments
     'comments_title'      => 'Recent Comments',
-    'sample_comment_name' => 'Fikri Pandu',
-    'sample_comment_date' => 'Dec 2, 2023',
-    'sample_comment_text' => 'Great news—looking forward to seeing the new capabilities in action.',
+    'sample_comment_name' => 'Andi Pratama',
+    'sample_comment_date' => 'Jan 16, 2025',
+    'sample_comment_text' => 'Congratulations! This certification shows real commitment to quality.',
     'reply'               => 'Reply',
 
     // Comment form
@@ -57,13 +57,13 @@ return [
     'post_comment'  => 'Post Comment',
 
     // Prev/Next
-    'prev' => 'Previous: Strengthening the Supply Chain Through Supply Chain Financing',
-    'next' => 'Next: Ministry of Industry Partners with JICA to Accelerate Digitalization of Automotive Component SMEs',
+    'prev' => 'Previous: Sinarmax LED Lighting Products Pass Rigorous Quality Tests',
+    'next' => 'Next: Sinarmax Brings Solar-Powered Street Lighting to Remote Villages',
 
     // Sidebar
     'recent_news'   => 'Recent News',
-    'recent2_alt'   => 'Supply Chain Financing collaboration',
-    'recent2_title' => 'Strengthening the Supply Chain Through Supply Chain Financing',
-    'recent3_alt'   => 'JICA digitalization partnership',
-    'recent3_title' => 'Ministry of Industry Partners with JICA to Accelerate Digitalization of Automotive Component SMEs',
+    'recent2_alt'   => 'LED product quality testing',
+    'recent2_title' => 'Sinarmax LED Lighting Products Pass Rigorous Quality Tests',
+    'recent3_alt'   => 'Solar-powered lighting for remote villages',
+    'recent3_title' => 'Sinarmax Brings Solar-Powered Street Lighting to Remote Villages',
 ];

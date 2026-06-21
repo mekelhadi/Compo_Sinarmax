@@ -1,9 +1,9 @@
 <?php
 return [
     'meta_title'       => 'Berita – PT Abadi Banua Cemerlang',
-    'meta_description' => 'IKM otomotif tingkatkan daya saing melalui pendidikan dan kolaborasi: efisiensi, produktivitas, dan inovasi.',
-    'og_title'         => 'IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
-    'og_description'   => 'Program pelatihan dan pendampingan mendorong efisiensi, produktivitas, dan inovasi bagi IKM komponen otomotif.',
+    'meta_description' => 'PT Abadi Banua Cemerlang raih sertifikasi ISO 9001:2015, perkuat posisi sebagai perusahaan perakitan lampu PJU LED terkemuka.',
+    'og_title'         => 'PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015',
+    'og_description'   => 'Pencapaian penting dalam manajemen mutu untuk industri lampu PJU LED Indonesia.',
 
     // Breadcrumb
     'breadcrumb_home'   => 'Beranda',
@@ -11,41 +11,41 @@ return [
     'breadcrumb_details'=> 'Detail',
 
     // Cover
-    'cover_alt' => 'Program kolaborasi pendidikan untuk IKM otomotif',
+    'cover_alt' => 'Sertifikasi ISO 9001:2015 PT Abadi Banua Cemerlang',
 
     // Article
-    'title'      => 'IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
-    'author'     => 'Khaerul Izan',
-    'date_display' => '22 Nov 2023',
-    'read_time'  => '⏱️ 4–6 menit baca',
-    'comments_count' => '💬 12 Komentar',
+    'title'      => 'PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015, Perkuat Posisi sebagai Perusahaan Lampu PJU LED Terkemuka',
+    'author'     => 'Tim Sinarmax',
+    'date_display' => '15 Jan 2025',
+    'read_time'  => '⏱️ 3–5 menit baca',
+    'comments_count' => '💬 8 Komentar',
 
-    'p1' => 'IKM otomotif di Indonesia terus bertumbuh melalui program pendidikan yang berfokus pada efisiensi, produktivitas, dan inovasi. Langkah-langkah ini membantu IKM lolos kurasi sebagai mitra andal bagi industri skala besar.',
-    'p2_html' => 'Program <strong>IKM Closed Loop</strong> yang diinisiasi Kadin Indonesia bersama Kementerian Perindustrian dan Astra International (melalui Yayasan Dharma Bhakti Astra) memberikan pelatihan intensif serta pendampingan bagi pelaku IKM di sektor otomotif.',
-    'quote' => '“Lewat program ini, kami belajar membangun perusahaan yang efisien, produktif, dan inovatif sesuai standar ketat industri besar,” kata salah satu pelaku IKM yang kini sukses bermitra.',
+    'p1' => 'PT Abadi Banua Cemerlang, perusahaan di balik merek Sinarmax, telah resmi meraih sertifikasi ISO 9001:2015 — sebuah pencapaian penting yang menegaskan komitmen kami terhadap keunggulan manajemen mutu di industri lampu PJU LED.',
+    'p2_html' => 'Sertifikasi ini diberikan setelah melalui proses audit yang ketat, mencakup seluruh sistem manajemen mutu — dari pengadaan bahan baku, proses perakitan, hingga pengujian produk akhir dan layanan purna jual. <strong>Pencapaian ini mencerminkan dedikasi kami terhadap perbaikan berkelanjutan dan kepuasan pelanggan.</strong>',
+    'quote' => '“Sertifikasi ISO 9001:2015 bukan sekadar sertifikat di dinding. Ini adalah bukti komitmen kami untuk secara konsisten memberikan produk dan layanan terbaik,” ujar manajemen PT Abadi Banua Cemerlang.',
     'highlights_title' => 'Sorotan Utama',
-    'hl1' => 'Pendidikan efisiensi, produktivitas, dan inovasi krusial bagi pertumbuhan IKM.',
-    'hl2' => 'Kemitraan dengan industri besar menuntut standar tinggi pada biaya, kualitas, dan pengiriman.',
-    'hl3' => 'Materi meliputi 5R, K3L, keterampilan teknis, pemasaran, dan pengelolaan keuangan.',
-    'hl4' => 'Review berkala dan pemantauan MoU memastikan IKM naik tingkat.',
-    'p3'  => 'Menurut Kadin Indonesia, kolaborasi ini membangun ekosistem IKM yang inklusif untuk pertumbuhan jangka panjang dan daya saing industri lokal.',
+    'hl1' => 'Berhasil melewati audit komprehensif yang mencakup seluruh proses operasional.',
+    'hl2' => 'Sistem manajemen mutu tersertifikasi sesuai standar internasional.',
+    'hl3' => 'Memperkuat posisi sebagai mitra terpercaya untuk proyek infrastruktur pemerintah dan swasta.',
+    'hl4' => 'Komitmen terhadap perbaikan berkelanjutan dalam kualitas produk dan layanan pelanggan.',
+    'p3'  => 'Dengan sertifikasi ini, PT Abadi Banua Cemerlang siap memperluas jangkauan pasar dan berkontribusi dalam pembangunan infrastruktur nasional melalui solusi lampu PJU LED yang andal dan berkualitas tinggi.',
 
-    'figure_alt'     => 'Sesi pelatihan dan area inspeksi kualitas',
-    'figure_caption' => 'IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
+    'figure_alt'     => 'Laboratorium pengujian mutu di fasilitas PT Abadi Banua Cemerlang',
+    'figure_caption' => 'Laboratorium pengujian mutu — memastikan setiap produk Sinarmax memenuhi standar tertinggi.',
 
     // Tags & share
     'tags'      => 'Tag:',
-    'tags_list' => ['Kadin', 'Kementerian Perindustrian', 'Industri'],
+    'tags_list' => ['ISO 9001', 'Mutu', 'Sertifikasi', 'Sinarmax'],
     'share'     => 'Bagikan:',
 
     // Author box
-    'author_desc' => 'Berbagi kabar dan cerita dari PT Abadi Benua Cermelang.',
+    'author_desc' => 'Berita dan update resmi dari PT Abadi Banua Cemerlang.',
 
     // Comments
     'comments_title'      => 'Komentar Terbaru',
-    'sample_comment_name' => 'Fikri Pandu',
-    'sample_comment_date' => '2 Des 2023',
-    'sample_comment_text' => 'Kabar baik — tak sabar melihat kapabilitas barunya.',
+    'sample_comment_name' => 'Andi Pratama',
+    'sample_comment_date' => '16 Jan 2025',
+    'sample_comment_text' => 'Selamat! Sertifikasi ini menunjukkan komitmen nyata terhadap kualitas.',
     'reply'               => 'Balas',
 
     // Comment form
@@ -57,13 +57,13 @@ return [
     'post_comment'  => 'Kirim Komentar',
 
     // Prev/Next
-    'prev' => 'Sebelumnya: Penguatan Rantai Pasok melalui Supply Chain Financing',
-    'next' => 'Berikutnya: Kemenperin & JICA Percepat Digitalisasi IKM Komponen Otomotif',
+    'prev' => 'Sebelumnya: Produk Lampu LED Sinarmax Lulus Uji Mutu Ketat',
+    'next' => 'Berikutnya: Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil',
 
     // Sidebar
     'recent_news'   => 'Berita Terbaru',
-    'recent2_alt'   => 'Kolaborasi Supply Chain Financing',
-    'recent2_title' => 'Penguatan Rantai Pasok Melalui Supply Chain Financing',
-    'recent3_alt'   => 'Kemitraan digitalisasi JICA',
-    'recent3_title' => 'Kemenperin & JICA Percepat Digitalisasi IKM Komponen Otomotif',
+    'recent2_alt'   => 'Pengujian mutu produk LED',
+    'recent2_title' => 'Produk Lampu LED Sinarmax Lulus Uji Mutu Ketat',
+    'recent3_alt'   => 'Lampu tenaga surya untuk desa terpencil',
+    'recent3_title' => 'Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil',
 ];

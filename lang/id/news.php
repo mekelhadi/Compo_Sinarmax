@@ -1,29 +1,29 @@
 <?php
 return [
     'meta_title'       => 'Berita | PT Abadi Banua Cemerlang',
-    'meta_description' => 'Update terbaru PT Abadi Banua Cemerlang (Sinarmax): penguatan riset dan pengembangan produk sejak 2015, peningkatan kualitas manufaktur lampu PJU LED dan tenaga surya, serta aktivitas perusahaan dalam menghadirkan inovasi produk, layanan purna jual, dan pengembangan SDM guna memenuhi kebutuhan pasar secara berkelanjutan.',
+    'meta_description' => 'Update terbaru dari PT Abadi Banua Cemerlang (Sinarmax): inovasi lampu PJU LED, pencapaian kualitas, dan aktivitas perusahaan.',
 
     'breadcrumb_home' => 'Beranda',
     'breadcrumb_news' => 'Berita',
 
-    'hero_title' => 'Berita & Acara',
-    'hero_desc'  => 'Tetap terinformasi tentang kabar perusahaan, wawasan industri, dan inovasi yang membentuk masa depan industri injeksi plastik.',
+    'hero_title' => 'Berita & Kegiatan',
+    'hero_desc'  => 'Ikuti perkembangan terbaru, pencapaian, dan kegiatan dari PT Abadi Banua Cemerlang dan merek Sinarmax kami.',
 
-    // Kartu 1
-    'card1_author' => 'Khaerul Izan',
-    'card1_date'   => '22 Nov 2023',
-    'card1_title'  => 'IKM Otomotif Tingkatkan Daya Saing Lewat Pendidikan & Kolaborasi',
-    'card1_desc'   => 'Program pembinaan dan kolaborasi membantu IKM meningkatkan efisiensi, produktivitas, dan inovasi agar memenuhi standar industri besar.',
+    // Card 1
+    'card1_author' => 'Tim Sinarmax',
+    'card1_date'   => '15 Jan 2025',
+    'card1_title'  => 'PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015',
+    'card1_desc'   => 'Pencapaian penting dalam manajemen mutu, memperkuat komitmen kami dalam menyediakan solusi lampu PJU LED kelas dunia.',
 
-    // Kartu 2
-    'card2_author' => 'Astra Ventura',
-    'card2_date'   => '09 Apr 2025',
-    'card2_title'  => 'Penguatan Rantai Pasok melalui Supply Chain Financing',
-    'card2_desc'   => 'Kolaborasi untuk memperluas akses pembiayaan pemasok dan IKM guna memperkuat likuiditas dan keandalan pengiriman.',
+    // Card 2
+    'card2_author' => 'Tim Sinarmax',
+    'card2_date'   => '12 Mar 2025',
+    'card2_title'  => 'Produk Lampu LED Sinarmax Lulus Uji Mutu Ketat',
+    'card2_desc'   => 'Produk lampu PJU LED kami memenuhi standar SNI dan internasional, siap mendukung pembangunan infrastruktur nasional.',
 
-    // Kartu 3
-    'card3_author' => 'Vicky Rachman',
-    'card3_date'   => '24 Apr 2025',
-    'card3_title'  => 'Kemenperin & JICA Percepat Digitalisasi IKM Komponen Otomotif',
-    'card3_desc'   => 'Fokus pada produktivitas, jaminan kualitas, dan visibilitas rantai pasok untuk memenuhi standar QCD OEM.',
+    // Card 3
+    'card3_author' => 'Tim Sinarmax',
+    'card3_date'   => '20 Mei 2025',
+    'card3_title'  => 'Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil',
+    'card3_desc'   => 'Inisiatif CSR untuk menerangi daerah off-grid dengan solusi pencahayaan tenaga surya yang berkelanjutan dan hemat energi.',
 ];

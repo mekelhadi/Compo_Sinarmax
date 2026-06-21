@@ -1,9 +1,9 @@
 <?php
 return [
-    'meta_title'       => 'News – PT Abadi Benua Cermelang',
-    'meta_description' => 'Supply Chain Financing collaboration to strengthen suppliers and automotive SMEs: better access to financing and operational resilience.',
-    'og_title'         => 'Strengthening the Supply Chain Through Supply Chain Financing',
-    'og_description'   => 'Collaboration between PT Astra Mitra Ventura & PT Astra Otoparts Tbk to expand suppliers’ financing access.',
+    'meta_title'       => 'News – PT Abadi Banua Cemerlang',
+    'meta_description' => 'Sinarmax LED street lighting products pass rigorous quality tests and meet SNI and international standards.',
+    'og_title'         => 'Sinarmax LED Lighting Products Pass Rigorous Quality Tests',
+    'og_description'   => 'Sinarmax LED street lighting products meet SNI and international standards, ready to support national infrastructure.',
 
     // Breadcrumb
     'breadcrumb_home'    => 'Home',
@@ -11,49 +11,49 @@ return [
     'breadcrumb_details' => 'Details',
 
     // Cover
-    'cover_alt' => 'Supply Chain Financing collaboration announcement',
+    'cover_alt' => 'Sinarmax LED street lighting product quality testing',
 
     // Article
-    'title'        => 'Strengthening the Supply Chain Through Supply Chain Financing: Collaboration between PT Astra Mitra Ventura & PT Astra Otoparts Tbk',
-    'author'       => 'Astra Ventura',
-    'date_display' => 'Apr 09, 2025',
-    'read_time'    => '⏱️ 4–6 min read',
-    'comments_count'=> '💬 12 Comments',
+    'title'        => 'Sinarmax LED Street Lighting Products Pass Rigorous Quality Tests, Ready to Support National Infrastructure',
+    'author'       => 'Tim Sinarmax',
+    'date_display' => 'Mar 12, 2025',
+    'read_time'    => '⏱️ 3–5 min read',
+    'comments_count'=> '💬 10 Comments',
 
-    'p1_html' => 'PT Astra Mitra Ventura and PT Astra Otoparts Tbk announced a joint initiative to expand <em>Supply Chain Financing (SCF)</em> access for tier-2/3 suppliers and automotive SMEs.',
-    'p2'      => 'With SCF, qualified suppliers can receive early payment based on buyer-approved invoices, improving liquidity, shortening cash cycles, and ensuring on-time delivery across the ecosystem.',
+    'p1_html' => 'PT Abadi Banua Cemerlang, through its Sinarmax brand, announced that its LED street lighting products have successfully passed a series of rigorous quality tests, meeting both SNI (Indonesian National Standard) and international quality requirements.',
+    'p2'      => 'The comprehensive testing covered photometric performance, durability, water and dust resistance (IP rating), surge protection, and energy efficiency. All products exceeded the minimum requirements, confirming Sinarmax\'s commitment to delivering reliable and high-performance lighting solutions.',
 
-    'how_title'  => 'How the Collaboration Works',
-    'how_1_html' => '<strong>Buyer-backed invoices:</strong> Financing is based on verified PO/invoices from Astra Otoparts and its network.',
-    'how_2'      => 'Fast disbursement via digital submission and accelerated credit assessment.',
-    'how_3'      => 'Competitive rate for participating suppliers within the program.',
-    'how_4'      => 'Capability building on cashflow planning and production scheduling.',
+    'testing_title'  => 'Testing & Quality Assurance Process',
+    'testing_1_html' => '<strong>Photometric Testing:</strong> Measuring light distribution, lumen output, and uniformity to ensure optimal street illumination.',
+    'testing_2'      => 'Durability Testing: Products subjected to extreme temperature, humidity, and vibration simulations.',
+    'testing_3'      => 'Ingress Protection (IP) Testing: Verifying resistance against water and dust ingress for outdoor installation.',
+    'testing_4'      => 'Energy Efficiency Analysis: Confirming low power consumption without compromising brightness.',
 
-    'quote' => '“SCF lets SMEs focus on production instead of cashflow gaps. With stronger working capital, suppliers can improve delivery reliability and quality.”',
+    'quote' => '“Quality is at the heart of everything we do. Every Sinarmax product undergoes strict quality control to ensure it performs reliably in Indonesia\'s diverse environmental conditions.”',
 
-    'benefits_title' => 'Benefits for Suppliers & SMEs',
-    'benefit_1' => 'Improved working capital and purchase planning.',
-    'benefit_2' => 'Stabilized production and reduced stock-out risks.',
-    'benefit_3' => 'Stronger negotiation power for raw-material procurement.',
-    'benefit_4' => 'Enhanced performance to meet OEM QCD requirements.',
+    'benefits_title' => 'Benefits for Infrastructure Projects',
+    'benefit_1' => 'Reliable performance for long-term road and public space lighting.',
+    'benefit_2' => 'Energy-efficient design reduces operational costs for municipalities.',
+    'benefit_3' => 'Compliance with national procurement standards and specifications.',
+    'benefit_4' => 'Backed by comprehensive after-sales support and warranty.',
 
-    'figure_alt'     => 'Program briefing with suppliers',
-    'figure_caption' => 'Program briefing: aligning financing, delivery schedules, and supplier performance metrics.',
-    'p3'             => 'This initiative complements supplier development, digitalization, and quality assurance support—targeting sustainable, scalable growth for Indonesia’s automotive manufacturing sector.',
+    'figure_alt'     => 'Quality testing equipment at Sinarmax laboratory',
+    'figure_caption' => 'Advanced testing equipment ensures every product meets strict quality standards.',
+    'p3'             => 'With these certifications and test results, Sinarmax is fully prepared to support the Indonesian government\'s infrastructure development programs, including the National Strategic Projects (PSN) for public street lighting.',
 
     // Tags & share
     'tags'      => 'Tags:',
-    'tags_list' => ['Supply Chain', 'Financing', 'Automotive', 'SMEs'],
+    'tags_list' => ['Quality', 'Testing', 'SNI', 'LED', 'Infrastructure'],
     'share'     => 'Share:',
 
     // Author box
-    'author_desc' => 'Updates on supplier financing and supply-chain ecosystem strengthening initiatives.',
+    'author_desc' => 'Product quality and innovation updates from PT Abadi Banua Cemerlang.',
 
     // Comments
     'comments_title'      => 'Recent Comments',
-    'sample_comment_name' => 'Bagus',
-    'sample_comment_date' => 'Apr 10, 2025',
-    'sample_comment_text' => 'Great step for SMEs—cashflow support is exactly what suppliers need.',
+    'sample_comment_name' => 'Dewi Sartika',
+    'sample_comment_date' => 'Mar 13, 2025',
+    'sample_comment_text' => 'Great to see local products meeting international standards!',
     'reply'               => 'Reply',
 
     // Comment form
@@ -65,18 +65,18 @@ return [
     'post_comment'  => 'Post Comment',
 
     // Prev/Next
-    'prev' => 'Previous: Automotive SMEs Strengthen Competitiveness Through Education & Collaboration',
-    'next' => 'Next: Ministry of Industry Partners with JICA to Accelerate Digitalization of Automotive Component SMEs',
+    'prev' => 'Previous: PT Abadi Banua Cemerlang Achieves ISO 9001:2015 Certification',
+    'next' => 'Next: Sinarmax Brings Solar-Powered Street Lighting to Remote Villages',
 
     // Sidebar
     'recent_news'     => 'Recent News',
-    'recent1_alt'     => 'Education & collaboration for SMEs',
-    'recent1_title'   => 'Automotive SMEs Strengthen Competitiveness Through Education & Collaboration',
-    'recent1_author'  => 'Khaerul Izan',
-    'recent1_date'    => 'Nov 22, 2023',
+    'recent1_alt'     => 'ISO certification ceremony',
+    'recent1_title'   => 'PT Abadi Banua Cemerlang Achieves ISO 9001:2015 Certification',
+    'recent1_author'  => 'Tim Sinarmax',
+    'recent1_date'    => 'Jan 15, 2025',
 
-    'recent3_alt'     => 'JICA digitalization partnership',
-    'recent3_title'   => 'Ministry of Industry Partners with JICA to Accelerate Digitalization of Automotive Component SMEs',
-    'recent3_author'  => 'Vicky Rachman',
-    'recent3_date'    => 'Apr 24, 2025',
+    'recent3_alt'     => 'Solar-powered lighting for remote villages',
+    'recent3_title'   => 'Sinarmax Brings Solar-Powered Street Lighting to Remote Villages',
+    'recent3_author'  => 'Tim Sinarmax',
+    'recent3_date'    => 'May 20, 2025',
 ];

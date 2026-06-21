@@ -48,7 +48,7 @@
               <div class="rounded-2xl border border-[#E8EAF2] overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-500">
                 <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-[#F6F7FA]">
                   @php $bannerExists = $hero->banner && Storage::disk('public')->exists($hero->banner); @endphp
-                  <img src="{{ $bannerExists ? Storage::url($hero->banner) : asset('assets/backgrounds/Operasional.png') }}"
+                  <img src="{{ $bannerExists ? Storage::url($hero->banner) : asset('assets/img/logo_sinarmax.jpg') }}"
                        alt="{{ __('home.hero_alt') }}"
                        loading="lazy"
                        sizes="(min-width:1024px) 560px, 100vw"

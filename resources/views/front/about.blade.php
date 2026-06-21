@@ -46,13 +46,16 @@
   {{-- ABOUT BLOCKS --}}
   <section class="container max-w-[1130px] mx-auto px-4 flex flex-col gap-16 mt-10">
 
-    @forelse($abouts as $about)
+    @forelse($abouts as $index => $about)
       <article class="flex flex-col lg:flex-row gap-8">
 
         <div class="w-full lg:w-1/2">
-          @php $aboutThumbExists = $about->thumbnail && Storage::disk('public')->exists($about->thumbnail); @endphp
-          <img src="{{ $aboutThumbExists ? Storage::url($about->thumbnail) : asset('assets/Images/Diversifikasi.png') }}" class="rounded-xl w-full">
-        </div>
+          @php
+            $aboutThumbExists = $about->thumbnail && Storage::disk('public')->exists($about->thumbnail);
+            $fallbackImages = ['assets/Images/Team2.png', 'assets/img/logo_sinarmax.jpg'];
+            $fallbackImg = $fallbackImages[$index % count($fallbackImages)];
+          @endphp
+          <img src="{{ $aboutThumbExists ? Storage::url($about->thumbnail) : asset($fallbackImg) }}" class="rounded-xl w-full">
 
         <div class="w-full lg:w-1/2">
           <h2 class="text-2xl font-bold">{{ $about->name }}</h2>

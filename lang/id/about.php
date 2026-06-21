@@ -20,15 +20,15 @@ return [
 
     // Business Plan Section
     'bp_title' => 'Rencana Bisnis',
-    'bp1_img_alt' => 'Gambar Pengembangan Pelanggan & Produk',
-    'bp1_title'   => 'Ekspansi Pelanggan & Produk',
-    'bp1_desc'    => 'Mengembangkan sektor pencahayaan dan infrastruktur sambil membuka peluang layanan purna jual serta menjangkau pelanggan baru.',
-    'bp2_img_alt' => 'Gambar Keunggulan Operasional & Kapasitas Produksi',
+    'bp1_img_alt' => 'Gambar Ekspansi Pasar',
+    'bp1_title'   => 'Ekspansi Pasar & Produk',
+    'bp1_desc'    => 'Memperluas pasar dan mengembangkan solusi pencahayaan LED inovatif untuk infrastruktur dan industri.',
+    'bp2_img_alt' => 'Gambar Keunggulan Operasional',
     'bp2_title'   => 'Keunggulan Operasional & Kapasitas',
-    'bp2_desc'    => 'Meningkatkan mesin dan kapasitas produksi untuk memenuhi kebutuhan pelanggan.',
-    'bp3_img_alt' => 'Gambar SDM & Kepuasan Pelanggan',
+    'bp2_desc'    => 'Meningkatkan lini perakitan dan fasilitas pengujian untuk meningkatkan kapasitas memenuhi permintaan yang terus bertumbuh.',
+    'bp3_img_alt' => 'Gambar SDM',
     'bp3_title'   => 'SDM & Kepuasan Pelanggan',
-    'bp3_desc'    => 'Meningkatkan keterampilan dan layanan melalui perbaikan QCD yang berkelanjutan.',
+    'bp3_desc'    => 'Meningkatkan keterampilan dan layanan melalui perbaikan QCD berkelanjutan dan pengembangan karyawan.',
 
     // Organization
     'org_title_line1' => 'Struktur',

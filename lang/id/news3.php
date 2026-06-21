@@ -1,9 +1,9 @@
 <?php
 return [
     'meta_title'       => 'Berita – PT Abadi Banua Cemerlang',
-    'meta_description' => 'Kemenperin berkolaborasi dengan JICA untuk percepat digitalisasi IKM komponen otomotif: produktivitas, kualitas, dan visibilitas rantai pasok.',
-    'og_title'         => 'Kemenperin & JICA Percepat Digitalisasi IKM Komponen Otomotif',
-    'og_description'   => 'Fokus pada praktik manufaktur cerdas, QC digital, dan kesiapan pemasok memenuhi standar OEM.',
+    'meta_description' => 'Inisiatif CSR Sinarmax menghadirkan lampu jalan bertenaga surya ke desa terpencil, mendukung pembangunan berkelanjutan.',
+    'og_title'         => 'Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil',
+    'og_description'   => 'Inisiatif CSR untuk menerangi daerah off-grid dengan solusi pencahayaan tenaga surya yang berkelanjutan dan hemat energi.',
 
     // Breadcrumb
     'breadcrumb_home'    => 'Beranda',
@@ -11,47 +11,47 @@ return [
     'breadcrumb_details' => 'Detail',
 
     // Cover + Article
-    'cover_alt'    => 'Kemitraan digitalisasi Kemenperin dan JICA untuk IKM otomotif',
-    'title'        => 'Kemenperin Gandeng JICA Percepat Digitalisasi IKM Komponen Otomotif',
-    'author'       => 'Vicky Rachman',
-    'date_display' => '24 Apr 2025',
-    'read_time'    => '⏱️ 4–6 menit baca',
-    'comments_count'=> '💬 12 Komentar',
+    'cover_alt'    => 'Pemasangan lampu jalan bertenaga surya di desa terpencil',
+    'title'        => 'Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil Melalui Program CSR',
+    'author'       => 'Tim Sinarmax',
+    'date_display' => '20 Mei 2025',
+    'read_time'    => '⏱️ 3–5 menit baca',
+    'comments_count'=> '💬 15 Komentar',
 
-    'p1_html' => 'Kementerian Perindustrian (Kemenperin) bersama Japan International Cooperation Agency (JICA) meluncurkan inisiatif percepatan transformasi digital bagi IKM komponen otomotif—menargetkan produktivitas, jaminan mutu, dan visibilitas rantai pasok untuk memenuhi standar QCD OEM.',
-    'p2'      => 'Kolaborasi ini memperkenalkan proyek percontohan seperti pelacakan produksi digital, <em>electronic work instruction</em>, dan pemantauan mutu real-time. IKM mendapat workshop, pendampingan di lokasi, serta asesmen untuk memprioritaskan use case berdampak tinggi dengan investasi yang praktis dan skalabel.',
+    'p1_html' => 'PT Abadi Banua Cemerlang, melalui merek Sinarmax, meluncurkan program Corporate Social Responsibility (CSR) untuk menghadirkan lampu jalan bertenaga surya ke desa-desa terpencil di Indonesia — <strong>memberikan penerangan yang andal bagi masyarakat yang sebelumnya tidak memiliki akses ke penerangan jalan umum.</strong>',
+    'p2'      => 'Program ini menyasar desa-desa off-grid dan tertinggal di mana biaya perluasan jaringan listrik konvensional sangat mahal. Dengan memasang sistem lampu jalan LED bertenaga surya Sinarmax, masyarakat kini menikmati ruang publik yang terang dan aman di malam hari — meningkatkan keselamatan, mobilitas, dan kualitas hidup.',
 
-    'focus_title'   => 'Fokus Utama',
-    'focus_1_html'  => '<strong>Shopfloor digital:</strong> pelacakan OEE, analisis downtime, dan <em>paperless</em> work order.',
-    'focus_2_html'  => '<strong>Sistem kualitas:</strong> e-checksheet, dasbor SPC, dan traceability lebih cepat.',
-    'focus_3_html'  => '<strong>Visibilitas rantai pasok:</strong> status PO, kepatuhan pengiriman, dan akurasi persediaan.',
-    'focus_4'       => 'Penguatan kapabilitas: pelatihan lean, literasi data, dan manajemen perubahan.',
+    'program_title'   => 'Sorotan Program',
+    'program_1_html'  => '<strong>100% tenaga surya:</strong> Sistem mandiri dengan panel surya dan baterai efisiensi tinggi.',
+    'program_2_html'  => '<strong>Operasi otomatis:</strong> Lampu menyala saat senja dan mati saat fajar dengan kontrol cerdas.',
+    'program_3_html'  => '<strong>Perawatan rendah:</strong> Dirancang untuk lokasi terpencil dengan kebutuhan perawatan minimal.',
+    'program_4'       => 'Pemberdayaan masyarakat: Warga setempat dilatih untuk perawatan dan pengoperasian dasar.',
 
-    'quote'          => '“Adopsi digital paling berhasil saat masalahnya jelas dan tim siap. Mulai kecil, buktikan nilai, lalu skalakan.”',
-    'outcomes_title' => 'Dampak yang Diharapkan',
-    'outcome_1'      => 'Throughput meningkat dan cacat berkurang lewat keputusan berbasis data.',
-    'outcome_2'      => 'Respon lebih cepat terhadap permintaan pelanggan dan ketepatan pengiriman lebih baik.',
-    'outcome_3'      => 'Kesiapan audit OEM dan target keberlanjutan semakin kuat.',
+    'quote'          => '“Akses terhadap penerangan yang andal mengubah masyarakat. Solusi tenaga surya kami menghadirkan cahaya ke desa-desa yang telah lama gelap — dengan aman, berkelanjutan, dan terjangkau.”',
+    'outcomes_title' => 'Dampak Program',
+    'outcome_1'      => 'Peningkatan keselamatan publik dengan jalan, masjid, dan area berkumpul yang terang.',
+    'outcome_2'      => 'Perpanjangan jam produktif untuk usaha kecil dan kegiatan pendidikan.',
+    'outcome_3'      => 'Pengurangan ketergantungan pada lampu minyak dan generator diesel, menurunkan emisi.',
 
-    'figure_alt'     => 'Workshop QC digital dan dasbor produksi',
-    'figure_caption' => 'Sesi workshop: pemetaan masalah, seleksi use case, dan penetapan baseline KPI.',
+    'figure_alt'     => 'Warga merayakan pemasangan lampu jalan tenaga surya',
+    'figure_caption' => 'Sebuah desa menyambut hangat kedatangan lampu jalan bertenaga surya — babak baru bagi masyarakat.',
 
     // Tags & share
     'tags'      => 'Tag:',
-    'tags_list' => ['Digitalization', 'Automotive', 'IKM', 'Quality'],
+    'tags_list' => ['CSR', 'Tenaga Surya', 'Energi Terbarukan', 'Masyarakat', 'Sinarmax'],
     'share'     => 'Bagikan:',
 
     // Author box
-    'author_desc' => 'Meliput kolaborasi industri dan inisiatif manufaktur cerdas.',
+    'author_desc' => 'Update program tanggung jawab sosial dan komunitas dari PT Abadi Banua Cemerlang.',
 
     // Comments
     'comments_title'      => 'Komentar Terbaru',
-    'sample_comment_name' => 'Gilang Mahar',
-    'sample_comment_date' => '25 Apr 2025',
-    'sample_comment_text' => 'Arah yang tepat—QC digital dan OEE akan membantu pemasok naik kelas lebih cepat.',
+    'sample_comment_name' => 'Hendra Gunawan',
+    'sample_comment_date' => '21 Mei 2025',
+    'sample_comment_text' => 'Inisiatif yang luar biasa! Penerangan benar-benar mengubah kehidupan di masyarakat pedesaan.',
     'reply'               => 'Balas',
 
-    // Form
+    // Comment form
     'leave_comment' => 'Tinggalkan Komentar',
     'form_name'     => 'Nama Anda*',
     'form_email'    => 'Email Anda*',
@@ -59,19 +59,19 @@ return [
     'form_comment'  => 'Komentar Anda*',
     'post_comment'  => 'Kirim Komentar',
 
-    // Prev/Next (mengikuti pola filemu)
-    'prev' => 'Sebelumnya: IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
-    'next' => 'Berikutnya: Penguatan Rantai Pasok Melalui Supply Chain Financing',
+    // Prev/Next
+    'prev' => 'Sebelumnya: Produk Lampu LED Sinarmax Lulus Uji Mutu Ketat',
+    'next' => 'Berikutnya: PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015',
 
     // Sidebar
     'recent_news'     => 'Berita Terbaru',
-    'recent1_alt'     => 'Pendidikan & kolaborasi untuk IKM',
-    'recent1_title'   => 'IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
-    'recent1_author'  => 'Khaerul Izan',
-    'recent1_date'    => '22 Nov 2023',
+    'recent1_alt'     => 'Sertifikasi ISO',
+    'recent1_title'   => 'PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015',
+    'recent1_author'  => 'Tim Sinarmax',
+    'recent1_date'    => '15 Jan 2025',
 
-    'recent2_alt'     => 'Kolaborasi Supply Chain Financing',
-    'recent2_title'   => 'Penguatan Rantai Pasok Melalui Supply Chain Financing',
-    'recent2_author'  => 'Astra Ventura',
-    'recent2_date'    => '9 Apr 2025',
+    'recent2_alt'     => 'Pengujian mutu produk LED',
+    'recent2_title'   => 'Produk Lampu LED Sinarmax Lulus Uji Mutu Ketat',
+    'recent2_author'  => 'Tim Sinarmax',
+    'recent2_date'    => '12 Mar 2025',
 ];

@@ -20,15 +20,15 @@ return [
 
     // Business Plan Section
     'bp_title' => 'Business Plan',
-    'bp1_img_alt' => 'Customer & Product Expansion image',
-    'bp1_title'   => 'Customer & Product Expansion',
-    'bp1_desc'    => 'Expanding into non-automotive sectors while developing after-market opportunities and new customers.',
-    'bp2_img_alt' => 'Operational Excellence & Capacity image',
+    'bp1_img_alt' => 'Market Expansion image',
+    'bp1_title'   => 'Market & Product Expansion',
+    'bp1_desc'    => 'Expanding into new markets and developing innovative LED lighting solutions for infrastructure and industry.',
+    'bp2_img_alt' => 'Operational Excellence image',
     'bp2_title'   => 'Operational Excellence & Capacity',
-    'bp2_desc'    => 'Upgrading machinery and scaling capacity to capture opportunities and meet customer needs.',
-    'bp3_img_alt' => 'Human Capital & Customer Satisfaction image',
+    'bp2_desc'    => 'Upgrading assembly lines and testing facilities to increase capacity and meet growing demand.',
+    'bp3_img_alt' => 'Human Capital image',
     'bp3_title'   => 'Human Capital & Customer Satisfaction',
-    'bp3_desc'    => 'Building skills and enhancing service through continuous QCD improvement.',
+    'bp3_desc'    => 'Building skills and enhancing service through continuous QCD improvement and employee development.',
 
     // Organization
     'org_title_line1' => 'Organization',

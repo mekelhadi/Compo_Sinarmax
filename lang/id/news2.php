@@ -1,9 +1,9 @@
 <?php
 return [
     'meta_title'       => 'Berita – PT Abadi Banua Cemerlang',
-    'meta_description' => 'Kolaborasi Supply Chain Financing untuk memperkuat pemasok dan IKM otomotif: akses pembiayaan dan ketahanan operasional.',
-    'og_title'         => 'Penguatan Rantai Pasok Melalui Supply Chain Financing',
-    'og_description'   => 'Kolaborasi PT Astra Mitra Ventura & PT Astra Otoparts Tbk untuk meningkatkan akses pembiayaan pemasok.',
+    'meta_description' => 'Produk lampu PJU LED Sinarmax lulus uji mutu ketat dan memenuhi standar SNI serta internasional.',
+    'og_title'         => 'Produk Lampu LED Sinarmax Lulus Uji Mutu Ketat',
+    'og_description'   => 'Produk lampu PJU LED Sinarmax memenuhi standar SNI dan internasional, siap mendukung infrastruktur nasional.',
 
     // Breadcrumb
     'breadcrumb_home'    => 'Beranda',
@@ -11,49 +11,49 @@ return [
     'breadcrumb_details' => 'Detail',
 
     // Cover
-    'cover_alt' => 'Pengumuman kolaborasi Supply Chain Financing',
+    'cover_alt' => 'Pengujian mutu produk lampu PJU LED Sinarmax',
 
     // Article
-    'title'        => 'Penguatan Rantai Pasok Melalui Supply Chain Financing: Kolaborasi PT Astra Mitra Ventura & PT Astra Otoparts Tbk',
-    'author'       => 'Astra Ventura',
-    'date_display' => '9 Apr 2025',
-    'read_time'    => '⏱️ 4–6 menit baca',
-    'comments_count'=> '💬 12 Komentar',
+    'title'        => 'Produk Lampu PJU LED Sinarmax Lulus Uji Mutu Ketat, Siap Dukung Infrastruktur Nasional',
+    'author'       => 'Tim Sinarmax',
+    'date_display' => '12 Mar 2025',
+    'read_time'    => '⏱️ 3–5 menit baca',
+    'comments_count'=> '💬 10 Komentar',
 
-    'p1_html' => 'PT Astra Mitra Ventura dan PT Astra Otoparts Tbk mengumumkan inisiatif bersama untuk memperluas akses <em>Supply Chain Financing (SCF)</em> bagi pemasok tier-2/3 dan IKM otomotif.',
-    'p2'      => 'Melalui SCF, pemasok yang memenuhi syarat dapat menerima pembayaran lebih awal berdasarkan invoice yang disetujui pembeli, sehingga likuiditas terjaga, siklus kas lebih pendek, dan ketepatan pengiriman meningkat.',
+    'p1_html' => 'PT Abadi Banua Cemerlang, melalui merek Sinarmax, mengumumkan bahwa produk lampu PJU LED-nya telah berhasil melewati serangkaian uji mutu ketat, memenuhi standar SNI (Standar Nasional Indonesia) dan persyaratan mutu internasional.',
+    'p2'      => 'Pengujian komprehensif mencakup kinerja fotometrik, ketahanan, ketahanan terhadap air dan debu (IP rating), perlindungan surge, dan efisiensi energi. Semua produk melampaui persyaratan minimum, menegaskan komitmen Sinarmax dalam memberikan solusi pencahayaan yang andal dan berperforma tinggi.',
 
-    'how_title'  => 'Cara Kolaborasi Berjalan',
-    'how_1_html' => '<strong>Invoice dijamin pembeli:</strong> Pembiayaan berbasis PO/invoice terverifikasi dari jaringan Astra Otoparts.',
-    'how_2'      => 'Pencairan cepat: pengajuan digital & asesmen kredit yang dipercepat.',
-    'how_3'      => 'Suku bunga kompetitif bagi pemasok peserta program.',
-    'how_4'      => 'Pendampingan kapabilitas: perencanaan arus kas & penjadwalan produksi.',
+    'testing_title'  => 'Proses Pengujian & Jaminan Mutu',
+    'testing_1_html' => '<strong>Pengujian Fotometrik:</strong> Mengukur distribusi cahaya, output lumen, dan keseragaman untuk memastikan penerangan jalan yang optimal.',
+    'testing_2'      => 'Pengujian Ketahanan: Produk diuji pada simulasi suhu ekstrem, kelembaban, dan getaran.',
+    'testing_3'      => 'Pengujian Ingress Protection (IP): Memverifikasi ketahanan terhadap air dan debu untuk instalasi luar ruangan.',
+    'testing_4'      => 'Analisis Efisiensi Energi: Memastikan konsumsi daya rendah tanpa mengorbankan kecerahan.',
 
-    'quote' => '“SCF membuat IKM fokus ke produksi, bukan kekosongan kas. Dengan modal kerja yang kuat, ketepatan pengiriman dan kualitas meningkat.”',
+    'quote' => '“Kualitas adalah inti dari semua yang kami lakukan. Setiap produk Sinarmax melalui kontrol kualitas ketat untuk memastikan kinerja andal di berbagai kondisi lingkungan Indonesia.”',
 
-    'benefits_title' => 'Manfaat bagi Pemasok & IKM',
-    'benefit_1' => 'Modal kerja dan perencanaan pembelian lebih baik.',
-    'benefit_2' => 'Produksi lebih stabil dan risiko kekosongan stok menurun.',
-    'benefit_3' => 'Daya tawar pengadaan bahan baku meningkat.',
-    'benefit_4' => 'Kinerja memenuhi tuntutan QCD OEM dengan lebih konsisten.',
+    'benefits_title' => 'Manfaat untuk Proyek Infrastruktur',
+    'benefit_1' => 'Kinerja andal untuk penerangan jalan dan ruang publik jangka panjang.',
+    'benefit_2' => 'Desain hemat energi mengurangi biaya operasional bagi pemerintah daerah.',
+    'benefit_3' => 'Sesuai dengan standar dan spesifikasi pengadaan nasional.',
+    'benefit_4' => 'Didukung layanan purna jual dan garansi yang komprehensif.',
 
-    'figure_alt'     => 'Sesi sosialisasi program bersama pemasok',
-    'figure_caption' => 'Briefing program: sinkronisasi pembiayaan, jadwal pengiriman, dan metrik performa pemasok.',
-    'p3'             => 'Inisiatif ini melengkapi program pengembangan pemasok, digitalisasi, dan dukungan mutu—menuju pertumbuhan berkelanjutan bagi sektor manufaktur otomotif Indonesia.',
+    'figure_alt'     => 'Peralatan pengujian mutu di laboratorium Sinarmax',
+    'figure_caption' => 'Peralatan pengujian canggih memastikan setiap produk memenuhi standar mutu ketat.',
+    'p3'             => 'Dengan sertifikasi dan hasil uji ini, Sinarmax siap mendukung program pembangunan infrastruktur pemerintah Indonesia, termasuk Proyek Strategis Nasional (PSN) untuk penerangan jalan umum.',
 
     // Tags & share
     'tags'      => 'Tag:',
-    'tags_list' => ['Supply Chain', 'Financing', 'Automotive', 'IKM'],
+    'tags_list' => ['Mutu', 'Pengujian', 'SNI', 'LED', 'Infrastruktur'],
     'share'     => 'Bagikan:',
 
     // Author box
-    'author_desc' => 'Pembaruan seputar pembiayaan pemasok dan penguatan ekosistem rantai pasok.',
+    'author_desc' => 'Update kualitas produk dan inovasi dari PT Abadi Banua Cemerlang.',
 
     // Comments
     'comments_title'      => 'Komentar Terbaru',
-    'sample_comment_name' => 'Bagus',
-    'sample_comment_date' => '10 Apr 2025',
-    'sample_comment_text' => 'Langkah yang tepat untuk IKM—dukungan arus kas sangat dibutuhkan.',
+    'sample_comment_name' => 'Dewi Sartika',
+    'sample_comment_date' => '13 Mar 2025',
+    'sample_comment_text' => 'Senang melihat produk lokal memenuhi standar internasional!',
     'reply'               => 'Balas',
 
     // Comment form
@@ -65,18 +65,18 @@ return [
     'post_comment'  => 'Kirim Komentar',
 
     // Prev/Next
-    'prev' => 'Sebelumnya: IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
-    'next' => 'Berikutnya: Kemenperin & JICA Percepat Digitalisasi IKM Komponen Otomotif',
+    'prev' => 'Sebelumnya: PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015',
+    'next' => 'Berikutnya: Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil',
 
     // Sidebar
     'recent_news'     => 'Berita Terbaru',
-    'recent1_alt'     => 'Pendidikan & kolaborasi untuk IKM',
-    'recent1_title'   => 'IKM Otomotif Perkuat Daya Saing Lewat Pendidikan & Kolaborasi',
-    'recent1_author'  => 'Khaerul Izan',
-    'recent1_date'    => '22 Nov 2023',
+    'recent1_alt'     => 'Sertifikasi ISO',
+    'recent1_title'   => 'PT Abadi Banua Cemerlang Raih Sertifikasi ISO 9001:2015',
+    'recent1_author'  => 'Tim Sinarmax',
+    'recent1_date'    => '15 Jan 2025',
 
-    'recent3_alt'     => 'Kemitraan digitalisasi JICA',
-    'recent3_title'   => 'Kemenperin & JICA Percepat Digitalisasi IKM Komponen Otomotif',
-    'recent3_author'  => 'Vicky Rachman',
-    'recent3_date'    => '24 Apr 2025',
+    'recent3_alt'     => 'Lampu tenaga surya untuk desa terpencil',
+    'recent3_title'   => 'Sinarmax Hadirkan Lampu Jalan Bertenaga Surya untuk Desa Terpencil',
+    'recent3_author'  => 'Tim Sinarmax',
+    'recent3_date'    => '20 Mei 2025',
 ];
