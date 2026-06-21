@@ -23,11 +23,11 @@ return [
     'p1_html' => 'PT Abadi Banua Cemerlang, melalui merek Sinarmax, mengumumkan bahwa produk lampu PJU LED-nya telah berhasil melewati serangkaian uji mutu ketat, memenuhi standar SNI (Standar Nasional Indonesia) dan persyaratan mutu internasional.',
     'p2'      => 'Pengujian komprehensif mencakup kinerja fotometrik, ketahanan, ketahanan terhadap air dan debu (IP rating), perlindungan surge, dan efisiensi energi. Semua produk melampaui persyaratan minimum, menegaskan komitmen Sinarmax dalam memberikan solusi pencahayaan yang andal dan berperforma tinggi.',
 
-    'testing_title'  => 'Proses Pengujian & Jaminan Mutu',
-    'testing_1_html' => '<strong>Pengujian Fotometrik:</strong> Mengukur distribusi cahaya, output lumen, dan keseragaman untuk memastikan penerangan jalan yang optimal.',
-    'testing_2'      => 'Pengujian Ketahanan: Produk diuji pada simulasi suhu ekstrem, kelembaban, dan getaran.',
-    'testing_3'      => 'Pengujian Ingress Protection (IP): Memverifikasi ketahanan terhadap air dan debu untuk instalasi luar ruangan.',
-    'testing_4'      => 'Analisis Efisiensi Energi: Memastikan konsumsi daya rendah tanpa mengorbankan kecerahan.',
+    'how_title'  => 'Proses Pengujian & Jaminan Mutu',
+    'how_1_html' => '<strong>Pengujian Fotometrik:</strong> Mengukur distribusi cahaya, output lumen, dan keseragaman untuk memastikan penerangan jalan yang optimal.',
+    'how_2'      => 'Pengujian Ketahanan: Produk diuji pada simulasi suhu ekstrem, kelembaban, dan getaran.',
+    'how_3'      => 'Pengujian Ingress Protection (IP): Memverifikasi ketahanan terhadap air dan debu untuk instalasi luar ruangan.',
+    'how_4'      => 'Analisis Efisiensi Energi: Memastikan konsumsi daya rendah tanpa mengorbankan kecerahan.',
 
     'quote' => '“Kualitas adalah inti dari semua yang kami lakukan. Setiap produk Sinarmax melalui kontrol kualitas ketat untuk memastikan kinerja andal di berbagai kondisi lingkungan Indonesia.”',
 

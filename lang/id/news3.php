@@ -21,11 +21,11 @@ return [
     'p1_html' => 'PT Abadi Banua Cemerlang, melalui merek Sinarmax, meluncurkan program Corporate Social Responsibility (CSR) untuk menghadirkan lampu jalan bertenaga surya ke desa-desa terpencil di Indonesia — <strong>memberikan penerangan yang andal bagi masyarakat yang sebelumnya tidak memiliki akses ke penerangan jalan umum.</strong>',
     'p2'      => 'Program ini menyasar desa-desa off-grid dan tertinggal di mana biaya perluasan jaringan listrik konvensional sangat mahal. Dengan memasang sistem lampu jalan LED bertenaga surya Sinarmax, masyarakat kini menikmati ruang publik yang terang dan aman di malam hari — meningkatkan keselamatan, mobilitas, dan kualitas hidup.',
 
-    'program_title'   => 'Sorotan Program',
-    'program_1_html'  => '<strong>100% tenaga surya:</strong> Sistem mandiri dengan panel surya dan baterai efisiensi tinggi.',
-    'program_2_html'  => '<strong>Operasi otomatis:</strong> Lampu menyala saat senja dan mati saat fajar dengan kontrol cerdas.',
-    'program_3_html'  => '<strong>Perawatan rendah:</strong> Dirancang untuk lokasi terpencil dengan kebutuhan perawatan minimal.',
-    'program_4'       => 'Pemberdayaan masyarakat: Warga setempat dilatih untuk perawatan dan pengoperasian dasar.',
+    'focus_title'   => 'Sorotan Program',
+    'focus_1_html'  => '<strong>100% tenaga surya:</strong> Sistem mandiri dengan panel surya dan baterai efisiensi tinggi.',
+    'focus_2_html'  => '<strong>Operasi otomatis:</strong> Lampu menyala saat senja dan mati saat fajar dengan kontrol cerdas.',
+    'focus_3_html'  => '<strong>Perawatan rendah:</strong> Dirancang untuk lokasi terpencil dengan kebutuhan perawatan minimal.',
+    'focus_4'       => 'Pemberdayaan masyarakat: Warga setempat dilatih untuk perawatan dan pengoperasian dasar.',
 
     'quote'          => '“Akses terhadap penerangan yang andal mengubah masyarakat. Solusi tenaga surya kami menghadirkan cahaya ke desa-desa yang telah lama gelap — dengan aman, berkelanjutan, dan terjangkau.”',
     'outcomes_title' => 'Dampak Program',

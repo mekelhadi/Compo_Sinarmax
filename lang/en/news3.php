@@ -21,11 +21,11 @@ return [
     'p1_html' => 'PT Abadi Banua Cemerlang, through its Sinarmax brand, launched a Corporate Social Responsibility (CSR) program to bring solar-powered street lighting to remote villages across Indonesia — <strong>providing reliable illumination to communities that previously had no access to public lighting.</strong>',
     'p2'      => 'The program targets off-grid and underdeveloped villages where the cost of extending conventional power grids is prohibitively high. By deploying Sinarmax\'s solar-powered LED street lighting systems, these communities now enjoy safe, well-lit public spaces at night — improving safety, mobility, and quality of life.',
 
-    'program_title'   => 'Program Highlights',
-    'program_1_html'  => '<strong>100% solar-powered:</strong> Standalone systems with high-efficiency solar panels and batteries.',
-    'program_2_html'  => '<strong>Automatic operation:</strong> Lights turn on at dusk and off at dawn with intelligent controls.',
-    'program_3_html'  => '<strong>Low maintenance:</strong> Designed for remote locations with minimal service requirements.',
-    'program_4'       => 'Community engagement: Local residents trained on basic maintenance and operation.',
+    'focus_title'   => 'Program Highlights',
+    'focus_1_html'  => '<strong>100% solar-powered:</strong> Standalone systems with high-efficiency solar panels and batteries.',
+    'focus_2_html'  => '<strong>Automatic operation:</strong> Lights turn on at dusk and off at dawn with intelligent controls.',
+    'focus_3_html'  => '<strong>Low maintenance:</strong> Designed for remote locations with minimal service requirements.',
+    'focus_4'       => 'Community engagement: Local residents trained on basic maintenance and operation.',
 
     'quote'          => '“Access to reliable lighting transforms communities. Our solar-powered solutions bring light to villages that have been in the dark for far too long — safely, sustainably, and affordably.”',
     'outcomes_title' => 'Program Impact',

@@ -23,11 +23,11 @@ return [
     'p1_html' => 'PT Abadi Banua Cemerlang, through its Sinarmax brand, announced that its LED street lighting products have successfully passed a series of rigorous quality tests, meeting both SNI (Indonesian National Standard) and international quality requirements.',
     'p2'      => 'The comprehensive testing covered photometric performance, durability, water and dust resistance (IP rating), surge protection, and energy efficiency. All products exceeded the minimum requirements, confirming Sinarmax\'s commitment to delivering reliable and high-performance lighting solutions.',
 
-    'testing_title'  => 'Testing & Quality Assurance Process',
-    'testing_1_html' => '<strong>Photometric Testing:</strong> Measuring light distribution, lumen output, and uniformity to ensure optimal street illumination.',
-    'testing_2'      => 'Durability Testing: Products subjected to extreme temperature, humidity, and vibration simulations.',
-    'testing_3'      => 'Ingress Protection (IP) Testing: Verifying resistance against water and dust ingress for outdoor installation.',
-    'testing_4'      => 'Energy Efficiency Analysis: Confirming low power consumption without compromising brightness.',
+    'how_title'  => 'Testing & Quality Assurance Process',
+    'how_1_html' => '<strong>Photometric Testing:</strong> Measuring light distribution, lumen output, and uniformity to ensure optimal street illumination.',
+    'how_2'      => 'Durability Testing: Products subjected to extreme temperature, humidity, and vibration simulations.',
+    'how_3'      => 'Ingress Protection (IP) Testing: Verifying resistance against water and dust ingress for outdoor installation.',
+    'how_4'      => 'Energy Efficiency Analysis: Confirming low power consumption without compromising brightness.',
 
     'quote' => '“Quality is at the heart of everything we do. Every Sinarmax product undergoes strict quality control to ensure it performs reliably in Indonesia\'s diverse environmental conditions.”',
 
