@@ -1,5 +1,4 @@
 {
-    "framework": "laravel",
     "buildCommand": "npm run build",
     "installCommand": "composer install --no-interaction --optimize-autoloader && npm install",
     "outputDirectory": "public",
