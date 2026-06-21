@@ -1,9 +1,12 @@
 /node_modules
 /vendor
 /public/storage
+/public/vendor
 /storage/app/public
 .env
 .DS_Store
 /.idea
 /.vscode
 *.log
+
+.vercel
