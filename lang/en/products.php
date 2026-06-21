@@ -1,6 +1,6 @@
 <?php
 return [
-    'meta_title'       => 'Products | PT Abadi Benua Cermelang',
+    'meta_title'       => 'Products | PT Abadi Banua Cemerlang',
     'meta_description' => 'Browse precision plastic injection products: motorcycle parts, vehicle parts, home appliance components, and more. ISO 9001:2015 quality.',
 
     'breadcrumb_home'     => 'Home',

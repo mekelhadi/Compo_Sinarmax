@@ -56,6 +56,7 @@
             $fallbackImg = $fallbackImages[$index % count($fallbackImages)];
           @endphp
           <img src="{{ $aboutThumbExists ? Storage::url($about->thumbnail) : asset($fallbackImg) }}" class="rounded-xl w-full">
+        </div>
 
         <div class="w-full lg:w-1/2">
           <h2 class="text-2xl font-bold">{{ $about->name }}</h2>
