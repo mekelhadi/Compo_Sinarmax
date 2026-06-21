@@ -311,7 +311,7 @@
        <p class="text-sm text-gray-600 mt-2">{{ __('home.gallery_subtitle') }}</p>
      </header>
 
-     @php $total = 5; @endphp
+     @php $total = 4; @endphp
 
      <div id="gallery-carousel" class="relative w-full shadow-lg rounded-xl overflow-hidden" data-carousel="slide">
        <div class="relative overflow-hidden rounded-xl h-[220px] sm:h-[300px] md:h-[380px] lg:h-[520px]">
