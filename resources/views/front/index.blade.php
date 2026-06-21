@@ -47,7 +47,8 @@
             <figure class="order-1 lg:order-2 opacity-0 translate-x-[50px] transition-all duration-1000 ease-out scroll-reveal">
               <div class="rounded-2xl border border-[#E8EAF2] overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-500">
                 <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-[#F6F7FA]">
-                  <img src="{{ $hero->banner ? Storage::url($hero->banner) : asset('assets/backgrounds/Operasional.png') }}"
+                  @php $bannerExists = $hero->banner && Storage::disk('public')->exists($hero->banner); @endphp
+                  <img src="{{ $bannerExists ? Storage::url($hero->banner) : asset('assets/backgrounds/Operasional.png') }}"
                        alt="{{ __('home.hero_alt') }}"
                        loading="lazy"
                        sizes="(min-width:1024px) 560px, 100vw"
@@ -154,7 +155,8 @@
       @forelse($products as $product)
         <article class="border border-[#E8EAF2] rounded-xl overflow-hidden hover:shadow-xl transition duration-300 opacity-0 scale-[0.9] scroll-reveal" data-reveal="zoom">
           <div class="aspect-square bg-white overflow-hidden">
-            <img src="{{ $product->thumbnail ? Storage::url($product->thumbnail) : asset('assets/products/NMAX-RF-200-Watt.jpg') }}"
+            @php $thumbExists = $product->thumbnail && Storage::disk('public')->exists($product->thumbnail); @endphp
+            <img src="{{ $thumbExists ? Storage::url($product->thumbnail) : asset('assets/products/NMAX-RF-200-Watt.jpg') }}"
                  alt="{{ $product->name }}"
                  loading="lazy"
                  class="w-full h-full object-cover transform hover:scale-110 transition duration-500">

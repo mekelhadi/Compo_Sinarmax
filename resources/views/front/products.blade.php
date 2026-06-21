@@ -48,8 +48,9 @@
             {{-- IMAGE --}}
             <div class="aspect-square bg-white overflow-hidden flex items-center justify-center">
                 <img 
-                    src="{{ $product->thumbnail 
-                        ? asset('storage/' . $product->thumbnail) 
+                    @php $thumbProdExists = $product->thumbnail && Storage::disk('public')->exists($product->thumbnail); @endphp
+                    src="{{ $thumbProdExists 
+                        ? Storage::url($product->thumbnail)
                         : asset('assets/products/NMAX-RF-200-Watt.jpg') }}"
                     alt="{{ $product->name }}"
                     class="w-full h-full object-contain p-4"

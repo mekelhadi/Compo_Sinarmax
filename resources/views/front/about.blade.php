@@ -50,7 +50,8 @@
       <article class="flex flex-col lg:flex-row gap-8">
 
         <div class="w-full lg:w-1/2">
-          <img src="{{ $about->thumbnail ? Storage::url($about->thumbnail) : asset('assets/Images/Diversifikasi.png') }}" class="rounded-xl w-full">
+          @php $aboutThumbExists = $about->thumbnail && Storage::disk('public')->exists($about->thumbnail); @endphp
+          <img src="{{ $aboutThumbExists ? Storage::url($about->thumbnail) : asset('assets/Images/Diversifikasi.png') }}" class="rounded-xl w-full">
         </div>
 
         <div class="w-full lg:w-1/2">
