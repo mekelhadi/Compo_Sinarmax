@@ -50,7 +50,7 @@
                 <img 
                     src="{{ $product->thumbnail 
                         ? asset('storage/' . $product->thumbnail) 
-                        : asset('assets/Images/NMAX_RF_240_Watt.jpg') }}"
+                        : asset('assets/products/NMAX-RF-200-Watt.jpg') }}"
                     alt="{{ $product->name }}"
                     class="w-full h-full object-contain p-4"
                     loading="lazy"

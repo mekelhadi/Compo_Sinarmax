@@ -90,7 +90,7 @@
         </ul>
 
         <figure class="my-6">
-          <img src="{{ asset('assets/news/news4.jpg') }}" alt="{{ __('news2.figure_alt') }}">
+          <img src="{{ asset('assets/news/News4.jpg') }}" alt="{{ __('news2.figure_alt') }}">
           <figcaption class="text-sm text-slate-500 mt-2">
             {{ __('news2.figure_caption') }}
           </figcaption>

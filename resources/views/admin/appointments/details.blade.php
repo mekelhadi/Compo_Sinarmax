@@ -17,7 +17,7 @@
                         alt="{{ $appointment->product->name }}"
                         class="rounded-2xl object-cover w-[120px] h-[90px]">
                         @else
-                        <img src="{{ asset('assets/products/custom-product.png') }}"
+                        <img src="{{ asset('assets/products/NMAX-RF-200-Watt.jpg') }}"
                         alt="Custom Product"
                         class="rounded-2xl object-cover w-[120px] h-[90px]">
                         @endif

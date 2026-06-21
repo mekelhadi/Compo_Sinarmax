@@ -154,7 +154,7 @@
       @forelse($products as $product)
         <article class="border border-[#E8EAF2] rounded-xl overflow-hidden hover:shadow-xl transition duration-300 opacity-0 scale-[0.9] scroll-reveal" data-reveal="zoom">
           <div class="aspect-square bg-white overflow-hidden">
-            <img src="{{ $product->thumbnail ? Storage::url($product->thumbnail) : asset('assets/products/custom-product.png') }}"
+            <img src="{{ $product->thumbnail ? Storage::url($product->thumbnail) : asset('assets/products/NMAX-RF-200-Watt.jpg') }}"
                  alt="{{ $product->name }}"
                  loading="lazy"
                  class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
@@ -180,15 +180,15 @@
 
       <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6決 stagger-container">
         <figure class="flex items-center justify-center h-32 md:h-36 rounded-xl border border-[#E8EAF2] bg-white p-6 opacity-0 translate-y-[30px] transition-all duration-500 scroll-reveal">
-          <img src="{{ asset('assets/Logo/logo1.svg') }}" alt="PT Astra Komponen Indonesia (ASKI)"
+          <img src="{{ asset('assets/logo/logo1.svg') }}" alt="PT Astra Komponen Indonesia (ASKI)"
                class="h-[64px] md:h-[80px] w-auto object-contain select-none grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300" loading="lazy">
         </figure>
         <figure class="flex items-center justify-center h-32 md:h-36 rounded-xl border border-[#E8EAF2] bg-white p-6 opacity-0 translate-y-[30px] transition-all duration-500 scroll-reveal">
-          <img src="{{ asset('assets/Logo/logo2.svg') }}" alt="PT Autoplastik Indonesia (API)"
+          <img src="{{ asset('assets/logo/logo2.svg') }}" alt="PT Autoplastik Indonesia (API)"
                class="h-[64px] md:h-[100px] w-auto object-contain select-none grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300" loading="lazy">
         </figure>
         <figure class="flex items-center justify-center h-32 md:h-36 rounded-xl border border-[#E8EAF2] bg-white p-6 opacity-0 translate-y-[30px] transition-all duration-500 scroll-reveal">
-          <img src="{{ asset('assets/Logo/logo3.svg') }}" alt="PT Star Cosmos"
+          <img src="{{ asset('assets/logo/logo3.svg') }}" alt="PT Star Cosmos"
                class="h-[64px] md:h-[100px] w-auto object-contain select-none grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300" loading="lazy">
         </figure>
       </div>
