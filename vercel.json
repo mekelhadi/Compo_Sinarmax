@@ -1,5 +1,5 @@
 {
-    "buildCommand": "npm run build",
+    "buildCommand": "npm run build && rm -rf node_modules",
     "installCommand": "npm install",
     "outputDirectory": "public",
     "functions": {
