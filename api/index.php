@@ -1,6 +1,14 @@
 <?php
 
+use Illuminate\Http\Request;
+
+define('LARAVEL_START', microtime(true));
+
+$tmp = null;
+
 $isVercel = getenv('VERCEL') ?: getenv('VERCEL_ENV') ?: false;
+if (isset($_ENV['VERCEL'])) $isVercel = true;
+if (isset($_SERVER['VERCEL'])) $isVercel = true;
 
 if ($isVercel) {
     $tmp = '/tmp/laravel';
@@ -29,4 +37,16 @@ if ($isVercel) {
     }
 }
 
-require __DIR__.'/../public/index.php';
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+require __DIR__.'/../vendor/autoload.php';
+
+$app = require_once __DIR__.'/../bootstrap/app.php';
+
+if ($tmp !== null) {
+    $app->useStoragePath($tmp . '/storage');
+}
+
+$app->handleRequest(Request::capture());
