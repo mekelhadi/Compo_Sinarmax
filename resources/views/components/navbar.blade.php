@@ -9,7 +9,7 @@
       {{-- LOGO --}}
       <div class="flex items-center gap-3 min-w-0">
         <div class="flex shrink-0 h-[43px] w-auto overflow-hidden">
-          <img src="{{ asset('assets/img/Logo_sinarmax.jpg') }}"
+          <img src="{{ asset('assets/img/logo_sinarmax.jpg') }}"
                class="object-contain w-full h-full" alt="logo">
         </div>
       </div>
