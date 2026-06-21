@@ -1,14 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
+if (!defined('LARAVEL_START')) {
+    define('LARAVEL_START', microtime(true));
+}
 
-define('LARAVEL_START', microtime(true));
+$isVercel = getenv('VERCEL') ?: getenv('VERCEL_ENV') ?: false;
 
-$tmp = null;
-
-if (isset($_ENV['VERCEL'])) {
+if ($isVercel) {
     $tmp = '/tmp/laravel';
-
     @mkdir($tmp, 0777, true);
 
     $tmpDb = $tmp . '/database.sqlite';
@@ -17,7 +16,8 @@ if (isset($_ENV['VERCEL'])) {
         copy($srcDb, $tmpDb);
     }
 
-    putenv("DB_DATABASE=$tmpDb");
+    putenv('DB_DATABASE=' . $tmpDb);
+    putenv('DB_CONNECTION=sqlite');
 
     $storageDirs = [
         'storage/framework/cache/data',
@@ -33,16 +33,4 @@ if (isset($_ENV['VERCEL'])) {
     }
 }
 
-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
-    require $maintenance;
-}
-
-require __DIR__.'/../vendor/autoload.php';
-
-$app = require_once __DIR__.'/../bootstrap/app.php';
-
-if ($tmp !== null) {
-    $app->useStoragePath($tmp . '/storage');
-}
-
-$app->handleRequest(Request::capture());
+require __DIR__.'/../public/index.php';
