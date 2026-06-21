@@ -1,6 +1,6 @@
 {
     "buildCommand": "npm run build",
-    "installCommand": "composer install --no-interaction --optimize-autoloader && npm install",
+    "installCommand": "npm install",
     "outputDirectory": "public",
     "functions": {
         "api/index.php": {
