@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Cookie;
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
@@ -47,7 +46,7 @@ Route::get('/news/details3', [FrontController::class, 'news_details3'])->name('f
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['id', 'en'])) {
-        Cookie::queue('locale', $locale, 525600); // 1 year
+        return redirect()->back()->withCookie(cookie()->forever('locale', $locale));
     }
     return redirect()->back();
 })->name('lang.switch');

@@ -64,11 +64,13 @@
                @click.outside="langOpen = false"
                class="absolute right-0 mt-2 w-36 bg-white border rounded-lg shadow-lg">
 
-            <a href="{{ route('lang.switch','id') }}"
-               class="block px-3 py-2 hover:bg-gray-100">Bahasa</a>
-
+            @if($cur === 'id')
             <a href="{{ route('lang.switch','en') }}"
                class="block px-3 py-2 hover:bg-gray-100">English</a>
+            @else
+            <a href="{{ route('lang.switch','id') }}"
+               class="block px-3 py-2 hover:bg-gray-100">Bahasa Indonesia</a>
+            @endif
           </div>
         </div>
 
