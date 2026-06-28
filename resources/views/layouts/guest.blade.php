@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('assets/logo/sinarmax.png') }}" type="image/png">
-    <title>{{ config('app.name', 'PT Abadi Banua Cemerlang') }}</title>
-
+    <title>@yield('title', config('app.name'))</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Figtree', sans-serif;
@@ -21,111 +18,144 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #0f0f1a;
+            background: #08080f;
             overflow: hidden;
             position: relative;
         }
 
-        .bg-grid {
+        .mesh-bg {
             position: fixed;
             inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 10% 90%, rgba(236, 72, 153, 0.06) 0%, transparent 40%);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
             background-image:
-                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: 0;
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
         }
 
-        .bg-glow {
+        .orb {
             position: fixed;
-            width: 600px;
-            height: 600px;
             border-radius: 50%;
-            filter: blur(120px);
+            filter: blur(80px);
             z-index: 0;
-            animation: floatGlow 8s ease-in-out infinite alternate;
-        }
-
-        .bg-glow-1 {
-            top: -200px;
-            right: -100px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
-            animation-delay: 0s;
-        }
-
-        .bg-glow-2 {
-            bottom: -200px;
-            left: -100px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.25), transparent);
-            animation-delay: 2s;
-        }
-
-        .bg-glow-3 {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent);
-            animation-delay: 4s;
-            width: 800px;
-            height: 800px;
-        }
-
-        @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-            100% { transform: translate(50px, -30px) scale(1.2); opacity: 1; }
-        }
-
-        .particles {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
             pointer-events: none;
         }
 
-        .particle {
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            top: -150px;
+            right: -100px;
+            background: rgba(99, 102, 241, 0.2);
+            animation: orbFloat 12s ease-in-out infinite alternate;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            left: -100px;
+            background: rgba(16, 185, 129, 0.15);
+            animation: orbFloat 10s ease-in-out infinite alternate-reverse;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            top: 40%;
+            left: 60%;
+            background: rgba(139, 92, 246, 0.12);
+            animation: orbFloat 14s ease-in-out infinite alternate;
+            animation-delay: -4s;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -30px) scale(1.15); }
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .star {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            background: #fff;
             border-radius: 50%;
-            animation: particleFloat linear infinite;
+            animation: starTwinkle var(--duration) ease-in-out infinite alternate;
         }
 
-        @keyframes particleFloat {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        @keyframes starTwinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
         }
 
-        .login-container {
+        .login-wrapper {
             position: relative;
             z-index: 1;
             width: 100%;
             max-width: 1100px;
             padding: 20px;
-            animation: fadeIn 0.8s ease-out;
+            animation: pageEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+        @keyframes pageEnter {
+            from { opacity: 0; transform: translateY(40px) scale(0.97); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .login-card {
             display: flex;
-            border-radius: 32px;
+            border-radius: 28px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow:
-                0 0 0 1px rgba(255, 255, 255, 0.05),
-                0 40px 80px rgba(0, 0, 0, 0.5),
-                0 20px 40px rgba(0, 0, 0, 0.3);
             min-height: 600px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.03),
+                0 50px 100px rgba(0, 0, 0, 0.5),
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 30px;
+            background: conic-gradient(from 0deg,
+                rgba(99, 102, 241, 0.3),
+                rgba(16, 185, 129, 0.2),
+                rgba(139, 92, 246, 0.3),
+                rgba(99, 102, 241, 0.1),
+                rgba(99, 102, 241, 0.3));
+            z-index: -1;
+            animation: borderRotate 6s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .login-left {
@@ -135,16 +165,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(15, 15, 30, 0.6);
             position: relative;
             overflow: hidden;
         }
 
-        .login-left::before {
+        .login-left::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(99, 102, 241, 0.08), transparent);
+            background: radial-gradient(ellipse at 40% 50%, rgba(99, 102, 241, 0.08), transparent 70%);
             pointer-events: none;
         }
 
@@ -155,17 +184,6 @@
             flex-direction: column;
             justify-content: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .login-right::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.1), transparent),
-                radial-gradient(ellipse at 20% 80%, rgba(16, 185, 129, 0.06), transparent);
-            pointer-events: none;
         }
 
         .brand-section {
@@ -174,29 +192,50 @@
             z-index: 1;
         }
 
-        .brand-logo {
-            width: 130px;
-            height: 130px;
-            object-fit: contain;
-            margin-bottom: 24px;
-            filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
-            animation: logoPulse 3s ease-in-out infinite;
+        .brand-logo-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 28px;
         }
 
-        @keyframes logoPulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3)); }
-            50% { transform: scale(1.03); filter: drop-shadow(0 0 50px rgba(99, 102, 241, 0.5)); }
+        .brand-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 28px;
+            filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.3));
+            animation: logoFloat 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-logo-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 34px;
+            border: 1.5px solid rgba(99, 102, 241, 0.2);
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.6; }
         }
 
         .brand-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
             color: #fff;
             letter-spacing: -0.5px;
             line-height: 1.2;
         }
 
-        .brand-title span {
+        .brand-title .highlight {
             background: linear-gradient(135deg, #818cf8, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -204,36 +243,53 @@
         }
 
         .brand-subtitle {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
-            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+            margin-top: 10px;
             font-weight: 400;
-            letter-spacing: 0.3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .brand-decoration {
+        .brand-features {
             margin-top: 40px;
             display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 260px;
+        }
+
+        .brand-feature {
+            display: flex;
+            align-items: center;
             gap: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .brand-feature:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.08);
+            transform: translateX(4px);
+        }
+
+        .brand-feature i {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-        }
-
-        .brand-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: dotPulse 2s ease-in-out infinite;
-        }
-
-        .brand-dot:nth-child(2) { animation-delay: 0.3s; background: rgba(99, 102, 241, 0.4); }
-        .brand-dot:nth-child(3) { animation-delay: 0.6s; }
-        .brand-dot:nth-child(4) { animation-delay: 0.9s; background: rgba(52, 211, 153, 0.4); }
-        .brand-dot:nth-child(5) { animation-delay: 1.2s; }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.5); opacity: 1; }
+            border-radius: 8px;
+            font-size: 0.8rem;
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
         }
 
         .form-section {
@@ -246,15 +302,31 @@
         }
 
         .form-header h2 {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #fff;
             letter-spacing: -0.3px;
+            min-height: 2.2rem;
+        }
+
+        .form-header h2 .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.6rem;
+            background: #6366f1;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .form-header p {
-            color: rgba(255, 255, 255, 0.45);
-            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
             margin-top: 6px;
         }
 
@@ -264,40 +336,60 @@
 
         .input-label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.55);
             margin-bottom: 8px;
             letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
 
         .input-wrapper {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 14px;
             padding: 4px 16px;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .input-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
         }
 
         .input-wrapper:focus-within {
-            border-color: rgba(99, 102, 241, 0.5);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.06), 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .input-wrapper:focus-within::after {
+            width: 80%;
         }
 
         .input-icon {
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.2);
             font-size: 1rem;
             margin-right: 12px;
             width: 20px;
             text-align: center;
-            transition: color 0.3s ease;
+            transition: color 0.35s ease;
         }
 
         .input-wrapper:focus-within .input-icon {
-            color: rgba(99, 102, 241, 0.7);
+            color: rgba(99, 102, 241, 0.6);
         }
 
         .input-field {
@@ -307,36 +399,42 @@
             outline: none;
             color: #fff;
             font-size: 0.95rem;
-            padding: 14px 0;
+            padding: 15px 0;
             font-family: 'Figtree', sans-serif;
             font-weight: 500;
         }
 
         .input-field::placeholder {
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.18);
             font-weight: 400;
+            font-size: 0.9rem;
         }
 
         .input-toggle {
             background: none;
             border: none;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.2);
             cursor: pointer;
             padding: 8px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-size: 1rem;
+            border-radius: 8px;
         }
 
         .input-toggle:hover {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .input-error-text {
             color: #f87171;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             margin-top: 6px;
             font-weight: 500;
             padding-left: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .form-options {
@@ -349,38 +447,68 @@
         .checkbox-label {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 0.88rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .checkbox-label:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .checkbox-label input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.05);
-            cursor: pointer;
-            accent-color: #6366f1;
-        }
-
-        .forgot-link {
             color: rgba(255, 255, 255, 0.45);
             font-size: 0.88rem;
             font-weight: 500;
-            text-decoration: none;
             transition: color 0.3s ease;
+            user-select: none;
+        }
+
+        .checkbox-label:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .checkbox-custom i {
+            font-size: 0.6rem;
+            color: #fff;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .checkbox-label input:checked + .checkbox-custom {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-color: #6366f1;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .checkbox-label input:checked + .checkbox-custom i {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .checkbox-label input {
+            display: none;
+        }
+
+        .forgot-link {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 8px;
         }
 
         .forgot-link:hover {
             color: #818cf8;
+            background: rgba(99, 102, 241, 0.08);
         }
 
         .btn-login {
@@ -396,7 +524,7 @@
             background: linear-gradient(135deg, #6366f1, #4f46e5);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -409,16 +537,37 @@
             inset: 0;
             background: linear-gradient(135deg, #4f46e5, #4338ca);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-login::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
         }
 
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.35);
+            box-shadow: 0 16px 50px rgba(99, 102, 241, 0.4);
         }
 
         .btn-login:hover::before {
             opacity: 1;
+        }
+
+        .btn-login:hover::after {
+            opacity: 1;
+        }
+
+        .btn-login:active {
+            transform: translateY(0) scale(0.98);
         }
 
         .btn-login span, .btn-login i {
@@ -426,16 +575,39 @@
             z-index: 1;
         }
 
-        .btn-login:active {
-            transform: translateY(0) scale(0.98);
+        .btn-login .btn-arrow {
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .btn-login i {
-            transition: transform 0.3s ease;
+        .btn-login:hover .btn-arrow {
+            transform: translateX(5px);
         }
 
-        .btn-login:hover i {
-            transform: translateX(4px);
+        .btn-login.loading {
+            pointer-events: none;
+        }
+
+        .btn-login .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2.5px solid rgba(255,255,255,0.2);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        .btn-login.loading .btn-text,
+        .btn-login.loading .btn-arrow {
+            display: none;
+        }
+
+        .btn-login.loading .spinner {
+            display: block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         .divider {
@@ -443,8 +615,8 @@
             align-items: center;
             gap: 16px;
             margin: 24px 0;
-            color: rgba(255, 255, 255, 0.25);
-            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.82rem;
             font-weight: 500;
         }
 
@@ -453,21 +625,21 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .btn-google {
             width: 100%;
             padding: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 14px;
-            background: rgba(255, 255, 255, 0.04);
-            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.92rem;
             font-weight: 600;
             font-family: 'Figtree', sans-serif;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -476,19 +648,25 @@
         }
 
         .btn-google:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
             transform: translateY(-1px);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .btn-google i {
             font-size: 1.2rem;
+            background: conic-gradient(from -45deg, #4285f4, #34a853, #fbbc05, #ea4335, #4285f4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .footer-text {
             text-align: center;
-            color: rgba(255, 255, 255, 0.25);
-            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 0.78rem;
             margin-top: 32px;
             font-weight: 400;
         }
@@ -497,67 +675,72 @@
             padding: 12px 16px;
             border-radius: 12px;
             margin-bottom: 20px;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.15);
             color: #34d399;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        @media (max-width: 768px) {
-            .login-card {
-                flex-direction: column;
-                min-height: auto;
-            }
+        .shake {
+            animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+        }
 
-            .login-left {
-                padding: 40px 30px;
-            }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-6px); }
+            40% { transform: translateX(6px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
 
-            .login-right {
-                padding: 40px 30px;
-            }
-
-            .brand-logo {
-                width: 90px;
-                height: 90px;
-            }
-
-            .brand-title {
-                font-size: 1.6rem;
-            }
-
-            .form-header h2 {
-                font-size: 1.4rem;
-            }
-
-            .brand-decoration {
-                display: none;
-            }
+        @media (max-width: 820px) {
+            .login-card { flex-direction: column; min-height: auto; }
+            .login-left { padding: 50px 30px 30px; }
+            .login-right { padding: 30px 30px 50px; }
+            .brand-logo { width: 90px; height: 90px; }
+            .brand-title { font-size: 1.5rem; }
+            .brand-features { display: none; }
+            .form-header h2 { font-size: 1.4rem; }
+            .orb { filter: blur(60px); }
         }
     </style>
+    @stack('styles')
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+    <div class="mesh-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="stars" id="stars"></div>
 
-    <div class="particles" id="particles"></div>
-
-    <div class="login-container">
+    <div class="login-wrapper">
         <div class="login-card">
             <div class="login-left">
                 <div class="brand-section">
-                    <img src="{{ asset('assets/logo/sinarmax.png') }}" alt="Logo" class="brand-logo">
-                    <h1 class="brand-title">PT. <span>Abadi Banua</span> Cemerlang</h1>
+                    <div class="brand-logo-wrap">
+                        <img src="{{ asset('assets/logo/sinarmax.png') }}" alt="Logo" class="brand-logo">
+                        <div class="brand-logo-ring"></div>
+                    </div>
+                    <h1 class="brand-title">PT. <span class="highlight">Abadi Banua</span> Cemerlang</h1>
                     <p class="brand-subtitle">LED Injection Industry</p>
-                    <div class="brand-decoration">
-                        <div class="brand-dot"></div>
-                        <div class="brand-dot"></div>
-                        <div class="brand-dot"></div>
-                        <div class="brand-dot"></div>
-                        <div class="brand-dot"></div>
+                    <div class="brand-features">
+                        <div class="brand-feature">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>Secure Admin Access</span>
+                        </div>
+                        <div class="brand-feature">
+                            <i class="fas fa-sliders"></i>
+                            <span>Full CMS Control</span>
+                        </div>
+                        <div class="brand-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Real-time Analytics</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -565,18 +748,18 @@
             <div class="login-right">
                 <div class="form-section">
                     <div class="form-header">
-                        <h2>Welcome Back</h2>
-                        <p>Sign in to your account to continue</p>
+                        <h2 id="typingText"></h2>
+                        <p>Sign in to manage your content</p>
                     </div>
 
                     @if (session('status'))
                         <div class="status-message">
-                            <i class="fa-solid fa-check-circle mr-2"></i>
+                            <i class="fa-solid fa-check-circle"></i>
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    {{ $slot }}
+                    @yield('content')
                 </div>
 
                 <div class="footer-text">
@@ -588,18 +771,51 @@
 
     <script>
         (function() {
-            const container = document.getElementById('particles');
-            const count = 50;
-            for (let i = 0; i < count; i++) {
-                const p = document.createElement('div');
-                p.className = 'particle';
-                p.style.left = Math.random() * 100 + '%';
-                p.style.width = p.style.height = (Math.random() * 3 + 2) + 'px';
-                p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-                p.style.animationDelay = (Math.random() * 10) + 's';
-                container.appendChild(p);
+            const starsEl = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const s = document.createElement('div');
+                s.className = 'star';
+                const size = Math.random() * 2.5 + 1;
+                s.style.width = size + 'px';
+                s.style.height = size + 'px';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.top = Math.random() * 100 + '%';
+                s.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                s.style.animationDelay = Math.random() * 4 + 's';
+                starsEl.appendChild(s);
             }
         })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "Welcome Back";
+            const el = document.getElementById('typingText');
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    el.innerHTML = text.substring(0, i + 1) + '<span class="cursor"></span>';
+                    i++;
+                    setTimeout(type, 60 + Math.random() * 40);
+                } else {
+                    el.innerHTML = text + '<span class="cursor"></span>';
+                }
+            }
+            setTimeout(type, 400);
+
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function() {
+                    const btn = this.querySelector('.btn-login');
+                    if (btn) btn.classList.add('loading');
+                });
+            }
+
+            const errorText = document.querySelector('.input-error-text');
+            if (errorText) {
+                const card = errorText.closest('.login-card');
+                if (card) card.classList.add('shake');
+            }
+        });
     </script>
+    @stack('scripts')
 </body>
 </html>
