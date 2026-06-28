@@ -48,7 +48,8 @@ class RolePermissionSeeder extends Seeder
             ['email' => 'super@admin.com'],
             [
                 'name' => 'Super Admin',
-                'password' => bcrypt('123123')
+                'password' => bcrypt('123123'),
+                'email_verified_at' => now(),
             ]
         );
 
@@ -75,7 +76,8 @@ class RolePermissionSeeder extends Seeder
             ['email' => 'manager@admin.com'],
             [
                 'name' => 'Manager',
-                'password' => bcrypt('123123')
+                'password' => bcrypt('123123'),
+                'email_verified_at' => now(),
             ]
         );
 
@@ -100,7 +102,8 @@ class RolePermissionSeeder extends Seeder
             ['email' => 'staff@admin.com'],
             [
                 'name' => 'Staff',
-                'password' => bcrypt('123123')
+                'password' => bcrypt('123123'),
+                'email_verified_at' => now(),
             ]
         );
 

@@ -16,6 +16,7 @@ class AdminSeeder extends Seeder
             [
                 'name' => 'SinarMax Admin',
                 'password' => Hash::make('Sinarmax'),
+                'email_verified_at' => now(),
             ]
         );
         $superAdminRole = Role::where('name', 'superadmin')->first();
@@ -28,6 +29,7 @@ class AdminSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'password' => Hash::make('password123'),
+                'email_verified_at' => now(),
             ]
         );
         if ($superAdminRole) {
