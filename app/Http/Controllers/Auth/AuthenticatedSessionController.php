@@ -10,43 +10,40 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
-   public function store(Request $request): RedirectResponse
-{
-    $credentials = $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
+    public function store(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-    if (Auth::attempt($credentials, $request->boolean('remember'))) {
-        $user = Auth::user();
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $user = Auth::user();
 
-        if ($user->hasRole('superadmin') || $user->hasRole('admin') || $user->is_admin) {
+            if ($user->hasRole('superadmin') || $user->hasRole('admin') || $user->is_admin) {
+                $request->session()->regenerate();
+                return redirect()->route('dashboard');
+            }
+
+            Auth::logout();
             $request->session()->regenerate();
-            return redirect()->intended(route('dashboard'));
+            return back()->withErrors([
+                'email' => 'Akun tidak memiliki akses admin.',
+            ])->onlyInput('email');
         }
 
-        Auth::logout();
-        $request->session()->regenerate();
         return back()->withErrors([
-            'email' => 'Akun tidak memiliki akses admin.',
+            'email' => 'Email atau password salah.',
         ])->onlyInput('email');
     }
-
-    return back()->withErrors([
-        'email' => 'Email atau password salah.',
-    ])->onlyInput('email');
-}
     /**
      * Destroy an authenticated session.
      */
