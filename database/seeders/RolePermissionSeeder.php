@@ -25,6 +25,7 @@ class RolePermissionSeeder extends Seeder
             'manage abouts',
             'manage appointments',
             'manage hero sections',
+            'manage contents',
         ];
 
         // SIMPAN PERMISSION

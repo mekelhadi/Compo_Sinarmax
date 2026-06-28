@@ -17,6 +17,9 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HeroSectionController;
 
+// ADMIN CONTENT CONTROLLER
+use App\Http\Controllers\Admin\ContentController;
+
 /*
 |--------------------------------------------------------------------------
 | FRONTEND ROUTES
@@ -121,6 +124,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // ⚠️ FIX: hindari spasi di permission
         Route::resource('hero_sections', HeroSectionController::class)
             ->middleware('can:manage hero_sections');
+
+        Route::controller(ContentController::class)->group(function () {
+            Route::get('contents', 'index')->name('contents.index');
+            Route::get('contents/{content}/edit', 'edit')->name('contents.edit');
+            Route::put('contents/{content}', 'update')->name('contents.update');
+        });
     });
 });
 

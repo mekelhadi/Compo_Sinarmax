@@ -15,4 +15,5 @@ return [
   'profile' => 'Profil',
   'logout' => 'Keluar',
   'dashboard' => 'Dasbor',
+  'website_content' => 'Konten Website',
 ];

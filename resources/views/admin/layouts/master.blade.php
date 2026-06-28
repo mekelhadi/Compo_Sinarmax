@@ -78,6 +78,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.contents.index') }}" class="nav-link {{ request()->routeIs('admin.contents.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>Konten Website</p>
+                        </a>
+                    </li>
+
                     <li class="nav-item {{ request()->routeIs('admin.products.*') ? 'menu-open' : '' }}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-boxes"></i>

@@ -15,4 +15,5 @@ return [
   'profile' => 'Profile',
   'logout' => 'Log Out',
   'dashboard' => 'Dashboard',
+  'website_content' => 'Website Content',
 ];

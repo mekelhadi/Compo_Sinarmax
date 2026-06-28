@@ -18,6 +18,10 @@
                         {{ __('nav.home') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('admin.contents.index')" :active="request()->routeIs('admin.contents.*')">
+                        {{ __('nav.website_content') }}
+                    </x-nav-link>
+
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
