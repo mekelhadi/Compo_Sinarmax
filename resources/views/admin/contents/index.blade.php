@@ -58,11 +58,12 @@
                             @foreach($section['items'] as $content)
                                 @php
                                     $val = $content->value ?? '';
-                                    $isImage = str_starts_with($val, 'data:image/')
-                                        || str_starts_with($val, 'http://')
-                                        || str_starts_with($val, 'https://')
-                                        || str_starts_with($val, 'assets/')
-                                        || preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $val);
+                                                        $isImage = str_starts_with($val, 'data:image/')
+                                                        || str_starts_with($val, 'http://')
+                                                        || str_starts_with($val, 'https://')
+                                                        || str_starts_with($val, 'assets/')
+                                                        || preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $val)
+                                                        || (\Illuminate\Support\Facades\Storage::disk('public')->exists($val));
                                     $isLongText = strlen($val) > 100;
                                 @endphp
                                 <tr>

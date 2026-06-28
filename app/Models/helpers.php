@@ -36,6 +36,9 @@ if (!function_exists('content_image')) {
         if (str_starts_with($val, 'assets/')) {
             return asset($val);
         }
+        if (Storage::disk('public')->exists($val)) {
+            return Storage::disk('public')->url($val);
+        }
         try {
             return Storage::url($val);
         } catch (\Exception $e) {

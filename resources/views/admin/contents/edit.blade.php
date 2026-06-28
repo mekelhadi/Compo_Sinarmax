@@ -49,12 +49,12 @@
                     @php
                         $val = $content->value ?? '';
                         $isBase64 = str_starts_with($val, 'data:image/');
-                        $isFileImage = preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $val);
-                        $isAsset = str_starts_with($val, 'assets/');
-                        $isStoredImage = !$isAsset && $isFileImage;
-                        $isImage = $isBase64 || $isAsset || $isStoredImage;
                         $isUrl = str_starts_with($val, 'http://') || str_starts_with($val, 'https://');
-                        $isExternalUrl = $isUrl;
+                        $isAsset = str_starts_with($val, 'assets/');
+                        $isStoredImage = !$isBase64 && !$isUrl && !$isAsset && $val && Storage::disk('public')->exists($val);
+                        $isImage = $isBase64 || $isAsset || $isStoredImage || $isUrl;
+                        $isText = !$isImage && strlen($val) > 0;
+                        $isEmpty = empty($val);
                     @endphp
 
                     <form action="{{ route('admin.contents.update', $content) }}"
@@ -69,28 +69,56 @@
                                    class="form-control bg-light" disabled>
                         </div>
 
-                        @if($isBase64 || $isAsset || $isStoredImage || $isExternalUrl)
+                        <div class="form-group">
+                            <label class="font-weight-bold">Tipe Konten</label>
+                            <div>
+                                @if($isBase64)
+                                    <span class="badge badge-info"><i class="fas fa-image mr-1"></i> Gambar (Base64)</span>
+                                @elseif($isStoredImage)
+                                    <span class="badge badge-info"><i class="fas fa-image mr-1"></i> Gambar (Storage)</span>
+                                @elseif($isAsset)
+                                    <span class="badge badge-info"><i class="fas fa-image mr-1"></i> Gambar (Asset)</span>
+                                @elseif($isUrl)
+                                    <span class="badge badge-info"><i class="fas fa-image mr-1"></i> Gambar (URL)</span>
+                                @elseif($isText)
+                                    <span class="badge badge-success"><i class="fas fa-text mr-1"></i> Teks</span>
+                                @else
+                                    <span class="badge badge-secondary"><i class="fas fa-empty mr-1"></i> Kosong</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        @if($isImage || $isEmpty)
                             <div class="form-group">
                                 <label class="font-weight-bold">Gambar Saat Ini</label>
                                 <div class="mt-2 mb-3">
                                     @if($isBase64)
                                         <img src="{{ $val }}" alt="{{ $content->key }}"
-                                             class="img-fluid rounded border"
+                                             class="img-fluid rounded border preview-img"
                                              style="max-height: 200px; object-fit: contain;">
                                     @elseif($isAsset)
                                         <img src="{{ asset($val) }}" alt="{{ $content->key }}"
-                                             class="img-fluid rounded border"
+                                             class="img-fluid rounded border preview-img"
                                              style="max-height: 200px; object-fit: contain;">
                                     @elseif($isStoredImage)
-                                        <img src="{{ Storage::url($val) }}" alt="{{ $content->key }}"
-                                             class="img-fluid rounded border"
+                                        <img src="{{ Storage::disk('public')->url($val) }}" alt="{{ $content->key }}"
+                                             class="img-fluid rounded border preview-img"
                                              style="max-height: 200px; object-fit: contain;">
-                                    @elseif($isExternalUrl)
+                                    @elseif($isUrl)
                                         <img src="{{ $val }}" alt="{{ $content->key }}"
-                                             class="img-fluid rounded border"
+                                             class="img-fluid rounded border preview-img"
                                              style="max-height: 200px; object-fit: contain;"
                                              onerror="this.parentElement.innerHTML='<span class=text-danger>URL gambar tidak valid</span>'">
+                                    @else
+                                        <div id="preview-placeholder" class="d-flex align-items-center justify-content-center rounded border bg-light"
+                                             style="max-height: 200px; min-height: 120px;">
+                                            <span class="text-muted"><i class="fas fa-upload mr-1"></i> Belum ada gambar</span>
+                                        </div>
                                     @endif
+                                    <div id="preview-container" class="mt-2 {{ $isImage ? '' : 'd-none' }}">
+                                        <img id="preview-image" class="img-fluid rounded border"
+                                             style="max-height: 200px; object-fit: contain; display: none;">
+                                    </div>
                                 </div>
                             </div>
 
@@ -109,14 +137,27 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Atau Masukkan URL Gambar</label>
                                 <input type="text" name="value"
-                                       value="{{ $isExternalUrl ? $val : '' }}"
+                                       value="{{ $isUrl ? $val : '' }}"
                                        placeholder="https://example.com/gambar.jpg"
                                        class="form-control">
                                 <small class="form-text text-muted">
                                     Kosongkan jika mengupload file.
                                 </small>
                             </div>
-                        @else
+
+                            @if($isImage)
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="clear_value" value="1"
+                                           class="custom-control-input" id="clearValue">
+                                    <label class="custom-control-label text-danger" for="clearValue">
+                                        <i class="fas fa-trash mr-1"></i> Hapus gambar ini
+                                    </label>
+                                </div>
+                            </div>
+                            @endif
+                        @elseif($isText)
+                            <input type="hidden" name="is_text" value="1">
                             <div class="form-group">
                                 <label class="font-weight-bold">Value</label>
                                 @if(strlen($val) > 150)
@@ -127,6 +168,15 @@
                                            value="{{ old('value', $val) }}"
                                            class="form-control">
                                 @endif
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="clear_value" value="1"
+                                           class="custom-control-input" id="clearValue">
+                                    <label class="custom-control-label text-danger" for="clearValue">
+                                        <i class="fas fa-trash mr-1"></i> Hapus konten ini
+                                    </label>
+                                </div>
                             </div>
                         @endif
 
@@ -204,9 +254,27 @@
 
 @push('scripts')
 <script>
-    document.querySelector('.custom-file-input')?.addEventListener('change', function(e) {
+    document.querySelector('#customFile')?.addEventListener('change', function(e) {
         var fileName = e.target.files[0]?.name || 'Pilih file';
         e.target.nextElementSibling.textContent = fileName;
+
+        if (e.target.files && e.target.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                var preview = document.getElementById('preview-image');
+                preview.src = ev.target.result;
+                preview.style.display = 'block';
+                document.getElementById('preview-container').classList.remove('d-none');
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
+
+    document.getElementById('clearValue')?.addEventListener('change', function() {
+        if (this.checked) {
+            document.querySelector('input[name="image"]').value = '';
+            document.querySelector('input[name="value"]').value = '';
+        }
     });
 </script>
 @endpush

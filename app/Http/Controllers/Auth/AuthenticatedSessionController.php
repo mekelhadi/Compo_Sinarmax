@@ -29,9 +29,18 @@ class AuthenticatedSessionController extends Controller
     ]);
 
     if (Auth::attempt($credentials, $request->boolean('remember'))) {
-        $request->session()->regenerate();
+        $user = Auth::user();
 
-        return redirect()->intended(route('dashboard'));
+        if ($user->hasRole('superadmin') || $user->hasRole('admin') || $user->is_admin) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('dashboard'));
+        }
+
+        Auth::logout();
+        $request->session()->regenerate();
+        return back()->withErrors([
+            'email' => 'Akun tidak memiliki akses admin.',
+        ])->onlyInput('email');
     }
 
     return back()->withErrors([

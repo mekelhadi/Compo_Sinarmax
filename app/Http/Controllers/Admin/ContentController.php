@@ -97,11 +97,12 @@ class ContentController extends Controller
     {
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $mime = $file->getMimeType();
-            $base64 = 'data:' . $mime . ';base64,' . base64_encode(file_get_contents($file->getRealPath()));
-            $content->update(['value' => $base64]);
+            $path = $file->store('contents', 'public');
+            $content->update(['value' => $path]);
         } elseif ($request->filled('value')) {
             $content->update(['value' => $request->value]);
+        } elseif ($request->boolean('clear_value')) {
+            $content->update(['value' => null]);
         }
 
         return redirect()->route('admin.contents.index')->with('success', 'Content "' . $content->key . '" updated successfully.');
