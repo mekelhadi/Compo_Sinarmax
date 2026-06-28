@@ -38,6 +38,7 @@ if ($isVercel) {
         'storage/framework/sessions',
         'storage/framework/views',
         'storage/logs',
+        'storage/app/public',
     ];
     foreach ($storageDirs as $dir) {
         $path = "$tmp/$dir";

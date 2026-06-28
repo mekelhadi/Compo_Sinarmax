@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
@@ -17,6 +18,21 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\Admin\ContentController;
+
+/*
+|--------------------------------------------------------------------------
+| STORAGE FILE SERVING (Vercel: no public/storage symlink)
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/storage/{path}', function (string $path) {
+    abort_if(str_contains($path, '..'), 404);
+    $fullPath = storage_path('app/public/' . $path);
+    if (!is_file($fullPath)) {
+        abort(404);
+    }
+    return response()->file($fullPath);
+})->where('path', '.*');
 
 /*
 |--------------------------------------------------------------------------

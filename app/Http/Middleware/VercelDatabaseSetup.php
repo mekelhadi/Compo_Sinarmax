@@ -22,6 +22,8 @@ class VercelDatabaseSetup
                 DB::statement('PRAGMA journal_mode=WAL');
                 DB::statement('PRAGMA busy_timeout=5000');
 
+                @mkdir(storage_path('app/public'), 0777, true);
+
                 Artisan::call('migrate', ['--force' => true]);
 
                 if (!\App\Models\User::where('email', 'sinarmax@gmail.com')->exists()) {

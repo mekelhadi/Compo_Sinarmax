@@ -35,7 +35,7 @@ class TestimonialController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTestimonialRequest$request)
+    public function store(StoreTestimonialRequest $request)
     {
         //
         DB::transaction(function () use ($request) {
