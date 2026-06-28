@@ -16,8 +16,6 @@ use App\Http\Controllers\ProjectClientController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HeroSectionController;
-
-// ADMIN CONTENT CONTROLLER
 use App\Http\Controllers\Admin\ContentController;
 
 /*
@@ -125,11 +123,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('hero_sections', HeroSectionController::class)
             ->middleware('can:manage hero_sections');
 
-        Route::controller(ContentController::class)->group(function () {
-            Route::get('contents', 'index')->name('contents.index');
-            Route::get('contents/{content}/edit', 'edit')->name('contents.edit');
-            Route::put('contents/{content}', 'update')->name('contents.update');
-        });
+        Route::prefix('contents')->name('contents.')->group(function () {
+            Route::get('/', [ContentController::class, 'index'])->name('index');
+            Route::get('/create', [ContentController::class, 'create'])->name('create');
+            Route::post('/', [ContentController::class, 'store'])->name('store');
+            Route::get('/{id}/edit', [ContentController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [ContentController::class, 'update'])->name('update');
+            Route::delete('/{id}', [ContentController::class, 'destroy'])->name('destroy');
+            Route::post('/upload-image', [ContentController::class, 'uploadImage'])->name('upload-image');
+        })->middleware('can:manage contents');
     });
 });
 

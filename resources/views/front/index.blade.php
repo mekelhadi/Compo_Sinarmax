@@ -1,54 +1,55 @@
 @extends('front.layouts.app')
 
-@section('title', content('home_meta_title', __('home.meta_title')))
-@section('meta_description', content('home_meta_description', __('home.meta_description')))
+@section('title', content('meta_title', __('home.meta_title')))
+@section('meta_description', content('meta_description', __('home.meta_description')))
 
 @section('content')
 
   {{-- HERO --}}
   <section class="bg-white overflow-x-hidden">
     <div class="bg-white">
-      {{-- Navbar --}}
       <x-navbar />
 
       <div class="container max-w-[1130px] mx-auto px-4 lg:px-0 py-10 lg:py-16">
         @forelse($hero_section as $hero)
           <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-            {{-- KIRI: Teks + CTA --}}
             <div class="order-2 lg:order-1 opacity-0 translate-x-[-50px] transition-all duration-1000 ease-out scroll-reveal">
               <input type="hidden" id="path_video" name="path_video" value="{{ $hero->path_video }}">
 
               <div class="inline-flex items-center bg-white px-4 py-2 gap-2 rounded-full border border-[#E8EAF2]">
-                <p class="font-semibold text-sm">{{ app()->getLocale() === 'id' ? __('home.hero_achievement') : $hero->achievement }}</p>
+                <p class="font-semibold text-sm">{{ content('hero_achievement', app()->getLocale() === 'id' ? __('home.hero_achievement') : $hero->achievement) }}</p>
               </div>
 
               <div class="mt-4 space-y-3">
                 <h1 class="font-extrabold text-[34px] leading-[42px] md:text-[44px] md:leading-[56px]">
-                  {{ app()->getLocale() === 'id' ? __('home.hero_heading') : $hero->heading }}
+                  {!! content('hero_heading', app()->getLocale() === 'id' ? __('home.hero_heading') : $hero->heading) !!}
                 </h1>
                 <p class="text-cp-light-grey leading-7 max-w-[520px]">
-                  {{ app()->getLocale() === 'id' ? __('home.hero_subheading') : $hero->subheading }}
+                  {!! content('hero_subheading', app()->getLocale() === 'id' ? __('home.hero_subheading') : $hero->subheading) !!}
                 </p>
               </div>
 
               <div class="mt-6 flex flex-wrap gap-3">
                 <a href="{{ route('front.ourservice') }}"
                    class="bg-cp-dark-blue text-white px-6 py-3 rounded-xl font-bold hover:shadow-[0_12px_30px_0_#312ECB66] transition duration-300 transform hover:-translate-y-1">
-                  {{ __('home.cta_services') }}
+                  {{ content('cta_services', __('home.cta_services')) }}
                 </a>
                 <a href="{{ route('front.about') }}"
                    class="px-6 py-3 rounded-xl font-bold border border-cp-dark-blue text-cp-dark-blue hover:bg-cp-dark-blue hover:text-white transition duration-300 transform hover:-translate-y-1">
-                  {{ __('home.cta_explore') }}
+                  {{ content('cta_explore', __('home.cta_explore')) }}
                 </a>
               </div>
             </div>
 
-            {{-- KANAN: Banner --}}
             <figure class="order-1 lg:order-2 opacity-0 translate-x-[50px] transition-all duration-1000 ease-out scroll-reveal">
               <div class="rounded-2xl border border-[#E8EAF2] overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-500">
                 <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-[#F6F7FA]">
-                  @php $bannerExists = $hero->banner && Storage::disk('public')->exists($hero->banner); @endphp
-                  <img src="{{ $bannerExists ? Storage::url($hero->banner) : asset('assets/Images/Team2.png') }}"
+                  @php
+                    $heroBanner = content('hero_banner');
+                    $bannerExists = $heroBanner ? Storage::disk('public')->exists($heroBanner) : ($hero->banner && Storage::disk('public')->exists($hero->banner));
+                    $bannerUrl = $heroBanner && $bannerExists ? Storage::url($heroBanner) : ($hero->banner && Storage::disk('public')->exists($hero->banner) ? Storage::url($hero->banner) : asset('assets/Images/Team2.png'));
+                  @endphp
+                  <img src="{{ $bannerUrl }}"
                        alt="{{ __('home.hero_alt') }}"
                        loading="lazy"
                        sizes="(min-width:1024px) 560px, 100vw"
@@ -69,21 +70,21 @@
     <div class="container max-w-[1130px] mx-auto px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger-container">
       <div class="bg-white rounded-2xl p-6 border border-[#E8EAF2] opacity-0 translate-y-[30px] transition-all duration-700 scroll-reveal">
         <p class="text-3xl font-extrabold text-cp-dark-blue">
-          <span class="count-up" data-target="35">0</span>+
+          <span class="count-up" data-target="{{ content('stats_machines_number', 35) }}">0</span>+
         </p>
-        <p class="text-cp-light-grey mt-1">{{ __('home.stats_machines') }}</p>
+        <p class="text-cp-light-grey mt-1">{{ content('stats_machines', __('home.stats_machines')) }}</p>
       </div>
       <div class="bg-white rounded-2xl p-6 border border-[#E8EAF2] opacity-0 translate-y-[30px] transition-all duration-700 scroll-reveal">
-        <p class="text-3xl font-extrabold text-cp-dark-blue">ISO</p>
-        <p class="text-cp-light-grey mt-1">9001:2015 {{ __('home.stats_certified') }}</p>
+        <p class="text-3xl font-extrabold text-cp-dark-blue">{{ content('stats_iso', 'ISO') }}</p>
+        <p class="text-cp-light-grey mt-1">{{ content('stats_certified', '9001:2015 ' . __('home.stats_certified')) }}</p>
       </div>
       <div class="bg-white rounded-2xl p-6 border border-[#E8EAF2] opacity-0 translate-y-[30px] transition-all duration-700 scroll-reveal">
-        <p class="text-3xl font-extrabold text-cp-dark-blue">QCD</p>
-        <p class="text-cp-light-grey mt-1">{{ __('home.stats_qcd') }}</p>
+        <p class="text-3xl font-extrabold text-cp-dark-blue">{{ content('stats_qcd_title', 'QCD') }}</p>
+        <p class="text-cp-light-grey mt-1">{{ content('stats_qcd', __('home.stats_qcd')) }}</p>
       </div>
       <div class="bg-white rounded-2xl p-6 border border-[#E8EAF2] opacity-0 translate-y-[30px] transition-all duration-700 scroll-reveal">
-        <p class="text-3xl font-extrabold text-cp-dark-blue">{{ __('home.stats_multi_sector_title') }}</p>
-        <p class="text-cp-light-grey mt-1">{{ __('home.stats_multi_sector_desc') }}</p>
+        <p class="text-3xl font-extrabold text-cp-dark-blue">{{ content('stats_multi_sector_title', __('home.stats_multi_sector_title')) }}</p>
+        <p class="text-cp-light-grey mt-1">{{ content('stats_multi_sector_desc', __('home.stats_multi_sector_desc')) }}</p>
       </div>
     </div>
   </section>
@@ -91,15 +92,14 @@
   {{-- COMPANY PROFILE VIDEO --}}
   <section class="bg-[#F6F7FA]">
     <div class="container max-w-[1130px] mx-auto px-4 py-14 text-center opacity-0 scale-[0.95] transition-all duration-1000 scroll-reveal">
-      <h2 class="text-3xl font-bold mb-6">{{ content('home_company_profile_title', __('home.company_profile_title')) }}</h2>
+      <h2 class="text-3xl font-bold mb-6">{{ content('company_profile_title', __('home.company_profile_title')) }}</h2>
       <p class="text-cp-light-grey max-w-2xl mx-auto mb-10">
-        {{ content('home_company_profile_desc', __('home.company_profile_desc')) }}
+        {{ content('company_profile_desc', __('home.company_profile_desc')) }}
       </p>
       <div class="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-2xl shadow-lg group">
-        @php $videoUrl = content('home_company_profile_video_url', 'https://www.youtube.com/embed/rhGl6-n2yVU'); @endphp
         <iframe class="absolute top-0 left-0 w-full h-full rounded-2xl"
-                src="{{ $videoUrl }}?rel=0&vq=hd1080&modestbranding=1&playsinline=1"
-                title="{{ content('home_company_profile_title', __('home.company_profile_title')) }}"
+                src="{{ content('company_video_url', 'https://www.youtube.com/embed/rhGl6-n2yVU?rel=0&vq=hd1080&modestbranding=1&playsinline=1') }}"
+                title="{{ __('home.company_profile_iframe_title') }}"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
@@ -112,39 +112,42 @@
   <section class="bg-[#F6F7FA]">
     <div class="container max-w-[1130px] mx-auto px-4 py-14">
       <div class="flex items-center justify-between gap-4 mb-8 opacity-0 translate-y-[20px] transition-all duration-700 scroll-reveal">
-        <h2 class="text-3xl font-bold">{{ content('home_bp_title', __('home.bp_title')) }}</h2>
+        <h2 class="text-3xl font-bold">{{ content('bp_title', __('home.bp_title')) }}</h2>
         <a href="{{ route('front.about') }}" class="text-cp-dark-blue font-semibold hover:underline flex items-center gap-1 group">
-          {{ __('home.learn_more') }}
+          {{ content('learn_more', __('home.learn_more')) }}
           <span class="transform group-hover:translate-x-1 transition duration-200">&rarr;</span>
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-container">
-        @php
-          $bpImages = [
-            content('home_bp1_image', 'assets/Images/Team2.png'),
-            content('home_bp2_image', 'assets/Images/Team4.png'),
-            content('home_bp3_image', 'assets/Images/Team.png'),
-          ];
-          $bpTitles = [
-            content('home_bp1_title', __('home.bp1_title')),
-            content('home_bp2_title', __('home.bp2_title')),
-            content('home_bp3_title', __('home.bp3_title')),
-          ];
-          $bpDescs = [
-            content('home_bp1_desc', __('home.bp1_desc')),
-            content('home_bp2_desc', __('home.bp2_desc')),
-            content('home_bp3_desc', __('home.bp3_desc')),
-          ];
-        @endphp
-        @for ($i = 0; $i < 3; $i++)
-          <article class="bg-white border border-[#E8EAF2] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 opacity-0 translate-y-[40px] scroll-reveal">
-            <img src="{{ content_image('home_bp'.($i+1).'_image', asset('assets/Images/Team2.png')) }}" alt="" loading="lazy" class="w-full h-44 object-cover">
-            <div class="p-6">
-              <h3 class="font-bold text-xl">{{ $bpTitles[$i] }}</h3>
-              <p class="mt-2 text-cp-light-grey">{{ $bpDescs[$i] }}</p>
-            </div>
-          </article>
-        @endfor
+        @php $bp1Img = content('bp1_image'); @endphp
+        <article class="bg-white border border-[#E8EAF2] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 opacity-0 translate-y-[40px] scroll-reveal">
+          <img src="{{ $bp1Img && Storage::disk('public')->exists($bp1Img) ? Storage::url($bp1Img) : asset('assets/Images/Team2.png') }}"
+               alt="{{ __('home.bp1_img_alt') }}" loading="lazy" class="w-full h-44 object-cover">
+          <div class="p-6">
+            <h3 class="font-bold text-xl">{{ content('bp1_title', __('home.bp1_title')) }}</h3>
+            <p class="mt-2 text-cp-light-grey">{{ content('bp1_desc', __('home.bp1_desc')) }}</p>
+          </div>
+        </article>
+
+        @php $bp2Img = content('bp2_image'); @endphp
+        <article class="bg-white border border-[#E8EAF2] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 opacity-0 translate-y-[40px] scroll-reveal">
+          <img src="{{ $bp2Img && Storage::disk('public')->exists($bp2Img) ? Storage::url($bp2Img) : asset('assets/Images/Team4.png') }}"
+               alt="{{ __('home.bp2_img_alt') }}" loading="lazy" class="w-full h-44 object-cover">
+          <div class="p-6">
+            <h3 class="font-bold text-xl">{{ content('bp2_title', __('home.bp2_title')) }}</h3>
+            <p class="mt-2 text-cp-light-grey">{{ content('bp2_desc', __('home.bp2_desc')) }}</p>
+          </div>
+        </article>
+
+        @php $bp3Img = content('bp3_image'); @endphp
+        <article class="bg-white border border-[#E8EAF2] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 opacity-0 translate-y-[40px] scroll-reveal">
+          <img src="{{ $bp3Img && Storage::disk('public')->exists($bp3Img) ? Storage::url($bp3Img) : asset('assets/Images/Team.png') }}"
+               alt="{{ __('home.bp3_img_alt') }}" loading="lazy" class="w-full h-44 object-cover">
+          <div class="p-6">
+            <h3 class="font-bold text-xl">{{ content('bp3_title', __('home.bp3_title')) }}</h3>
+            <p class="mt-2 text-cp-light-grey">{{ content('bp3_desc', __('home.bp3_desc')) }}</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -152,8 +155,8 @@
   {{-- FEATURED PRODUCTS --}}
   <section class="container max-w-[1130px] mx-auto px-4 py-14">
     <div class="flex items-center justify-between gap-4 mb-8 opacity-0 translate-y-[20px] transition-all duration-700 scroll-reveal">
-      <h2 class="text-3xl font-bold">{{ content('home_featured_title', __('home.featured_title')) }}</h2>
-      <a href="{{ route('front.team') }}" class="text-cp-dark-blue font-semibold hover:underline">{{ __('home.view_all') }}</a>
+      <h2 class="text-3xl font-bold">{{ content('featured_title', __('home.featured_title')) }}</h2>
+      <a href="{{ route('front.team') }}" class="text-cp-dark-blue font-semibold hover:underline">{{ content('view_all', __('home.view_all')) }}</a>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 stagger-container">
       @forelse($products as $product)
@@ -180,11 +183,11 @@
   <section class="bg-[#F6F7FA]">
     <div class="container max-w-[1130px] mx-auto px-4 py-16">
       <div class="text-center opacity-0 translate-y-[20px] transition-all duration-700 scroll-reveal">
-        <h2 class="text-3xl font-bold leading-tight">{{ content('home_clients_title', __('home.clients_title')) }}</h2>
-        <p class="mt-2 text-sm text-[#666A79]">{{ content('home_clients_subtitle', __('home.clients_subtitle')) }}</p>
+        <h2 class="text-3xl font-bold leading-tight">{{ content('clients_title', __('home.clients_title')) }}</h2>
+        <p class="mt-2 text-sm text-[#666A79]">{{ content('clients_subtitle', __('home.clients_subtitle')) }}</p>
       </div>
 
-      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6決 stagger-container">
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 stagger-container">
         <figure class="flex items-center justify-center h-32 md:h-36 rounded-xl border border-[#E8EAF2] bg-white p-6 opacity-0 translate-y-[30px] transition-all duration-500 scroll-reveal">
           <img src="{{ asset('assets/logo/logo1.svg') }}" alt="PT Astra Komponen Indonesia (ASKI)"
                class="h-[64px] md:h-[80px] w-auto object-contain select-none grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300" loading="lazy">
@@ -204,98 +207,102 @@
   {{-- SERVICES PREVIEW --}}
   <section class="container max-w-[1130px] mx-auto px-4 py-14">
     <div class="flex items-center justify-between gap-4 mb-8 opacity-0 translate-y-[20px] transition-all duration-700 scroll-reveal">
-      <h2 class="text-3xl font-bold">{{ content('home_services_title', __('home.services_title')) }}</h2>
-      <a href="{{ route('front.ourservice') }}" class="text-cp-dark-blue font-semibold hover:underline">{{ __('home.services_explore') }}</a>
+      <h2 class="text-3xl font-bold">{{ content('services_title', __('home.services_title')) }}</h2>
+      <a href="{{ route('front.ourservice') }}" class="text-cp-dark-blue font-semibold hover:underline">{{ content('services_explore', __('home.services_explore')) }}</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-container">
-    @php
-      $sIcons = [
-        content('home_s1_icon', 'assets/icons/automotive-components.svg'),
-        content('home_s2_icon', 'assets/icons/electronics-appliances.svg'),
-        content('home_s3_icon', 'assets/icons/supporting-services.svg'),
-      ];
-      $sTitles = [
-        content('home_s1_title', __('home.s1_title')),
-        content('home_s2_title', __('home.s2_title')),
-        content('home_s3_title', __('home.s3_title')),
-      ];
-      $sDescs = [
-        content('home_s1_desc', __('home.s1_desc')),
-        content('home_s2_desc', __('home.s2_desc')),
-        content('home_s3_desc', __('home.s3_desc')),
-      ];
-    @endphp
-    @for ($i = 0; $i < 3; $i++)
-      @php $iconSrc = str_starts_with($sIcons[$i], 'assets/') ? asset($sIcons[$i]) : Storage::url($sIcons[$i]); @endphp
       <article class="bg-white border border-[#E8EAF2] rounded-2xl p-6 hover:shadow-xl transition duration-300 opacity-0 translate-y-[30px] scroll-reveal">
-        <img src="{{ $iconSrc }}" alt="" class="w-12 h-12 mb-4 transform hover:scale-110 transition">
-        <h3 class="text-xl font-bold">{{ $sTitles[$i] }}</h3>
-        <p class="mt-2 text-cp-light-grey">{{ $sDescs[$i] }}</p>
+        <img src="{{ content('s1_icon', asset('assets/icons/automotive-components.svg')) }}" alt="" class="w-12 h-12 mb-4 transform hover:scale-110 transition">
+        <h3 class="text-xl font-bold">{{ content('s1_title', __('home.s1_title')) }}</h3>
+        <p class="mt-2 text-cp-light-grey">{{ content('s1_desc', __('home.s1_desc')) }}</p>
       </article>
-    @endfor
+
+      <article class="bg-white border border-[#E8EAF2] rounded-2xl p-6 hover:shadow-xl transition duration-300 opacity-0 translate-y-[30px] scroll-reveal">
+        <img src="{{ content('s2_icon', asset('assets/icons/electronics-appliances.svg')) }}" alt="" class="w-12 h-12 mb-4 transform hover:scale-110 transition">
+        <h3 class="text-xl font-bold">{{ content('s2_title', __('home.s2_title')) }}</h3>
+        <p class="mt-2 text-cp-light-grey">{{ content('s2_desc', __('home.s2_desc')) }}</p>
+      </article>
+
+      <article class="bg-white border border-[#E8EAF2] rounded-2xl p-6 hover:shadow-xl transition duration-300 opacity-0 translate-y-[30px] scroll-reveal">
+        <img src="{{ content('s3_icon', asset('assets/icons/supporting-services.svg')) }}" alt="" class="w-12 h-12 mb-4 transform hover:scale-110 transition">
+        <h3 class="text-xl font-bold">{{ content('s3_title', __('home.s3_title')) }}</h3>
+        <p class="mt-2 text-cp-light-grey">{{ content('s3_desc', __('home.s3_desc')) }}</p>
+      </article>
     </div>
   </section>
 
   {{-- LATEST NEWS --}}
   <section class="container max-w-[1000px] mx-auto px-4 py-14">
     <div class="flex items-center justify-between gap-4 mb-8 opacity-0 translate-y-[20px] transition-all duration-700 scroll-reveal">
-      <h2 class="text-3xl font-bold">{{ content('home_news_title', __('home.news_title')) }}</h2>
-      <a href="{{ route('front.news') }}" class="text-cp-dark-blue font-semibold hover:underline">{{ __('home.news_see_all') }}</a>
+      <h2 class="text-3xl font-bold">{{ content('news_title', __('home.news_title')) }}</h2>
+      <a href="{{ route('front.news') }}" class="text-cp-dark-blue font-semibold hover:underline">{{ content('news_see_all', __('home.news_see_all')) }}</a>
     </div>
 
-    @php
-      $newsImages = [
-        content('home_news1_image', 'assets/news/news1.jpg'),
-        content('home_news2_image', 'assets/news/news2.jpg'),
-        content('home_news3_image', 'assets/news/news3.jpg'),
-      ];
-      $newsTitles = [
-        content('home_news1_title', __('home.news1_title')),
-        content('home_news2_title', __('home.news2_title')),
-        content('home_news3_title', __('home.news3_title')),
-      ];
-      $newsDescs = [
-        content('home_news1_desc', __('home.news1_desc')),
-        content('home_news2_desc', __('home.news2_desc')),
-        content('home_news3_desc', __('home.news3_desc')),
-      ];
-      $newsAuthors = ['Khaerul Izan', 'Astra Ventura', 'Vicky Rachman'];
-      $newsDates = ['2023-11-22', '2025-04-09', '2025-04-24'];
-      $newsDateLabels = ['Nov 22, 2023', 'Apr 09, 2025', 'Apr 24, 2025'];
-      $newsRoutes = ['front.news_details1', 'front.news_details2', 'front.news_details3'];
-    @endphp
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 stagger-container">
-      @for ($i = 0; $i < 3; $i++)
-        @php $imgSrc = str_starts_with($newsImages[$i], 'assets/') ? asset($newsImages[$i]) : Storage::url($newsImages[$i]); @endphp
-        <article class="flex flex-col opacity-0 translate-y-[40px] transition-all duration-700 scroll-reveal">
-          <a href="{{ route($newsRoutes[$i]) }}" class="block border border-[#E8EAF2] rounded-lg overflow-hidden group">
-            <div class="aspect-[4/3] overflow-hidden rounded-lg">
-              <img src="{{ $imgSrc }}" alt="" loading="lazy" class="object-cover w-full h-full transform group-hover:scale-105 transition duration-500">
-            </div>
-          </a>
-          <div class="mt-3 text-xs text-slate-500 flex items-center gap-3">
-            <span>{{ $newsAuthors[$i] }}</span>
-            <time datetime="{{ $newsDates[$i] }}">{{ $newsDateLabels[$i] }}</time>
+      <article class="flex flex-col opacity-0 translate-y-[40px] transition-all duration-700 scroll-reveal">
+        <a href="{{ route('front.news_details1') }}" class="block border border-[#E8EAF2] rounded-lg overflow-hidden group">
+          <div class="aspect-[4/3] overflow-hidden rounded-lg">
+            <img src="{{ content('news1_image', asset('assets/news/news1.jpg')) }}" alt="" loading="lazy" class="object-cover w-full h-full transform group-hover:scale-105 transition duration-500">
           </div>
-          <a href="{{ route($newsRoutes[$i]) }}" class="mt-2 text-lg font-semibold hover:text-cp-dark-blue transition">
-            {{ $newsTitles[$i] }}
-          </a>
-          <p class="mt-2 text-sm text-slate-600 line-clamp-2">
-            {{ $newsDescs[$i] }}
-          </p>
-        </article>
-      @endfor
+        </a>
+        <div class="mt-3 text-xs text-slate-500 flex items-center gap-3">
+          <span>{{ content('news1_author', 'Khaerul Izan') }}</span>
+          <time datetime="2023-11-22">{{ content('news1_date', 'Nov 22, 2023') }}</time>
+        </div>
+        <a href="{{ route('front.news_details1') }}" class="mt-2 text-lg font-semibold hover:text-cp-dark-blue transition">
+          {{ content('news1_title', __('home.news1_title')) }}
+        </a>
+        <p class="mt-2 text-sm text-slate-600 line-clamp-2">
+          {{ content('news1_desc', __('home.news1_desc')) }}
+        </p>
+      </article>
+
+      <article class="flex flex-col opacity-0 translate-y-[40px] transition-all duration-700 scroll-reveal">
+        <a href="{{ route('front.news_details2') }}" class="block border border-[#E8EAF2] rounded-lg overflow-hidden group">
+          <div class="aspect-[4/3] overflow-hidden rounded-lg">
+            <img src="{{ content('news2_image', asset('assets/news/news2.jpg')) }}" alt="" loading="lazy" class="object-cover w-full h-full transform group-hover:scale-105 transition duration-500">
+          </div>
+        </a>
+        <div class="mt-3 text-xs text-slate-500 flex items-center gap-3">
+          <span>{{ content('news2_author', 'Astra Ventura') }}</span>
+          <time datetime="2025-04-09">{{ content('news2_date', 'Apr 09, 2025') }}</time>
+        </div>
+        <a href="{{ route('front.news_details2') }}" class="mt-2 text-lg font-semibold hover:text-cp-dark-blue transition">
+          {{ content('news2_title', __('home.news2_title')) }}
+        </a>
+        <p class="mt-2 text-sm text-slate-600 line-clamp-2">
+          {{ content('news2_desc', __('home.news2_desc')) }}
+        </p>
+      </article>
+
+      <article class="flex flex-col opacity-0 translate-y-[40px] transition-all duration-700 scroll-reveal">
+        <a href="{{ route('front.news_details3') }}" class="block border border-[#E8EAF2] rounded-lg overflow-hidden group">
+          <div class="aspect-[4/3] overflow-hidden rounded-lg">
+            <img src="{{ content('news3_image', asset('assets/news/news3.jpg')) }}" alt="" loading="lazy" class="object-cover w-full h-full transform group-hover:scale-105 transition duration-500">
+          </div>
+        </a>
+        <div class="mt-3 text-xs text-slate-500 flex items-center gap-3">
+          <span>{{ content('news3_author', 'Vicky Rachman') }}</span>
+          <time datetime="2025-04-24">{{ content('news3_date', 'Apr 24, 2025') }}</time>
+        </div>
+        <a href="{{ route('front.news_details3') }}" class="mt-2 text-lg font-semibold hover:text-cp-dark-blue transition">
+          {{ content('news3_title', __('home.news3_title')) }}
+        </a>
+        <p class="mt-2 text-sm text-slate-600 line-clamp-2">
+          {{ content('news3_desc', __('home.news3_desc')) }}
+        </p>
+      </article>
     </div>
   </section>
 
   {{-- CONTACT CTA --}}
   <section class="bg-cp-dark-blue text-white overflow-hidden">
     <div class="container max-w-[1130px] mx-auto px-4 py-14 text-center opacity-0 scale-95 transition-all duration-1000 scroll-reveal">
-      <h2 class="text-3xl font-bold">{{ content('home_contact_cta_title', __('home.contact_cta_title')) }}</h2>
-      <p class="mt-2 opacity-90">{{ content('home_contact_cta_desc', __('home.contact_cta_desc')) }}</p>
+      <h2 class="text-3xl font-bold">{{ content('contact_cta_title', __('home.contact_cta_title')) }}</h2>
+      <p class="mt-2 opacity-90">{{ content('contact_cta_desc', __('home.contact_cta_desc')) }}</p>
       <a href="{{ route('front.appointment') }}" class="inline-block mt-6 bg-white text-cp-dark-blue font-bold px-6 py-3 rounded-xl hover:bg-gray-100 shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-        {{ content('home_contact_cta_button', __('home.contact_cta_button')) }}
+        {{ content('contact_cta_button', __('home.contact_cta_button')) }}
       </a>
     </div>
   </section>
@@ -304,28 +311,20 @@
   <section class="bg-[#F6F7FA]">
    <div class="container max-w-[1130px] mx-auto px-4 py-12 opacity-0 translate-y-[30px] transition-all duration-1000 scroll-reveal">
      <header class="text-center mb-8">
-       <h2 class="text-3xl font-bold">{{ content('home_gallery_title', __('home.gallery_title')) }}</h2>
-       <p class="text-sm text-gray-600 mt-2">{{ content('home_gallery_subtitle', __('home.gallery_subtitle')) }}</p>
+       <h2 class="text-3xl font-bold">{{ content('gallery_title', __('home.gallery_title')) }}</h2>
+       <p class="text-sm text-gray-600 mt-2">{{ content('gallery_subtitle', __('home.gallery_subtitle')) }}</p>
      </header>
 
-     @php
-       $total = 5;
-       $galleryImages = [];
-       $galleryTitles = [];
-       for ($i = 1; $i <= $total; $i++) {
-         $galleryImages[$i] = content('home_gallery_'.$i.'_image', 'assets/gallery/'.$i.'.png');
-         $galleryTitles[$i] = content('home_gallery_'.$i.'_title', __('home.gallery.items.'.$i.'.title'));
-       }
-     @endphp
+     @php $total = 4; @endphp
 
      <div id="gallery-carousel" class="relative w-full shadow-lg rounded-xl overflow-hidden" data-carousel="slide">
        <div class="relative overflow-hidden rounded-xl h-[220px] sm:h-[300px] md:h-[380px] lg:h-[520px]">
          @for ($i = 1; $i <= $total; $i++)
            <div class="{{ $i === 1 ? '' : 'hidden' }} duration-700 ease-in-out" data-carousel-item="{{ $i === 1 ? 'active' : '' }}">
-             @php $gallerySrc = str_starts_with($galleryImages[$i], 'assets/') ? asset($galleryImages[$i]) : Storage::url($galleryImages[$i]); @endphp
+             @php $galleryImg = content('gallery_' . $i); @endphp
              <img
-               src="{{ $gallerySrc }}"
-               alt="{{ $galleryTitles[$i] }}"
+               src="{{ $galleryImg && Storage::disk('public')->exists($galleryImg) ? Storage::url($galleryImg) : asset('assets/gallery/'.$i.'.png') }}"
+               alt="{{ __('home.gallery.items.'.$i.'.title') }}"
                loading="lazy"
                class="absolute block w-full h-full object-cover object-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
              />
@@ -369,33 +368,35 @@
   <section class="bg-[#F6F7FA] w-full py-20 px-[10px] overflow-hidden">
     <div id="FAQ" class="container max-w-[1000px] mx-auto">
       <div class="flex flex-col lg:flex-row gap-[50px] sm:gap-[70px] items-center">
-        
+
         <div class="flex flex-col gap-[30px] opacity-0 translate-x-[-30px] transition-all duration-1000 scroll-reveal">
           <div class="flex flex-col gap-[10px]">
-            <h2 class="font-bold text-4xl leading-[45px]">{{ content('home_faq_title', __('home.faq_title')) }}</h2>
+            <h2 class="font-bold text-4xl leading-[45px]">{{ content('faq_title', __('home.faq_title')) }}</h2>
           </div>
           <a href="{{ route('front.appointment') }}" class="p-5 bg-cp-black hover:bg-cp-dark-blue rounded-xl text-white w-fit font-bold shadow transition duration-300">
-            {{ __('home.faq_contact') }}
+            {{ content('faq_contact', __('home.faq_contact')) }}
           </a>
         </div>
 
         <div class="flex flex-col gap-4 sm:w-[603px] shrink-0 stagger-container">
-          @foreach ([1,2,3,4,5] as $id)
-            @php
-              $faqQ = content('faq_q'.$id, __('home.faq_q'.$id));
-              $faqA = content('faq_a'.$id, __('home.faq_a'.$id));
-            @endphp
+          @foreach ([
+            ['q' => 'faq_q1', 'a' => 'faq_a1', 'id' => 1],
+            ['q' => 'faq_q2', 'a' => 'faq_a2', 'id' => 2],
+            ['q' => 'faq_q3', 'a' => 'faq_a3', 'id' => 3],
+            ['q' => 'faq_q4', 'a' => 'faq_a4', 'id' => 4],
+            ['q' => 'faq_q5', 'a' => 'faq_a5', 'id' => 5],
+          ] as $f)
             <div class="flex flex-col p-5 rounded-2xl bg-white w-full border border-[#E8EAF2] shadow-sm opacity-0 translate-y-[20px] transition-all duration-500 scroll-reveal group">
-              <button class="accordion-button flex justify-between gap-4 items-center w-full focus:outline-none" data-accordion="accordion-faq-{{ $id }}">
-                <span class="font-bold text-lg leading-[27px] text-left group-hover:text-cp-dark-blue transition-colors duration-300">{{ $faqQ }}</span>
+              <button class="accordion-button flex justify-between gap-4 items-center w-full focus:outline-none" data-accordion="accordion-faq-{{ $f['id'] }}">
+                <span class="font-bold text-lg leading-[27px] text-left group-hover:text-cp-dark-blue transition-colors duration-300">{{ content($f['q'], __('home.' . $f['q'])) }}</span>
                 <div class="arrow w-9 h-9 flex items-center justify-center shrink-0 rounded-full bg-slate-50 transition-all duration-300">
                   <svg class="w-4 h-4 text-slate-600 transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </div>
               </button>
-              <div id="accordion-faq-{{ $id }}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                <p class="leading-[30px] text-cp-light-grey pt-4 border-t border-slate-100 mt-2">{{ $faqA }}</p>
+              <div id="accordion-faq-{{ $f['id'] }}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <p class="leading-[30px] text-cp-light-grey pt-4 border-t border-slate-100 mt-2">{{ content($f['a'], __('home.' . $f['a'])) }}</p>
               </div>
             </div>
           @endforeach
@@ -405,7 +406,6 @@
     </div>
   </section>
 
-  {{-- Footer --}}
   <x-footer/>
 
 @endsection
@@ -417,17 +417,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script src="{{ asset('js/modal-video.js') }}"></script>
 
-  {{-- SCRIPT SCROLL ANIMASI, COUNT UP, DAN ACCORDING ARROW --}}
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      
-      // 1. INTERSECTION OBSERVER UNTUK SCROLL REVEAL & STAGGER
+
       const revealElements = document.querySelectorAll('.scroll-reveal');
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Jika elemen berada dalam container stagger
             const container = entry.target.closest('.stagger-container');
             if (container) {
               const children = Array.from(container.querySelectorAll('.scroll-reveal'));
@@ -435,20 +432,18 @@
                 setTimeout(() => {
                   child.classList.remove('opacity-0', 'translate-y-[20px]', 'translate-y-[30px]', 'translate-y-[40px]', 'translate-x-[-50px]', 'translate-x-[50px]', 'scale-[0.95]', 'scale-[0.9]');
                   child.classList.add('opacity-100', 'translate-y-0', 'translate-x-0', 'scale-100');
-                }, index * 100); // delay antar item 100ms
+                }, index * 100);
               });
             } else {
-              // Animasi single element biasa
               entry.target.classList.remove('opacity-0', 'translate-y-[20px]', 'translate-y-[30px]', 'translate-y-[40px]', 'translate-x-[-50px]', 'translate-x-[30px]', 'translate-x-[-30px]', 'translate-x-[50px]', 'scale-[0.95]', 'scale-95');
               entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0', 'scale-100');
             }
-            
-            // Jalankan animasi hitung angka jika ada class .count-up didalamnya
+
             const countElement = entry.target.querySelector('.count-up');
             if (countElement && !countElement.classList.contains('counted')) {
               runCountUp(countElement);
             }
-            
+
             observer.unobserve(entry.target);
           }
         });
@@ -456,17 +451,15 @@
 
       revealElements.forEach(el => observer.observe(el));
 
-      // Fungsi Math CountUp (Berjalan lancar 60fps)
       function runCountUp(el) {
         const target = +el.getAttribute('data-target');
-        const duration = 1500; // 1.5 detik durasi animasi
+        const duration = 1500;
         const startTime = performance.now();
 
         function updateCount(currentTime) {
           const elapsedTime = currentTime - startTime;
           if (elapsedTime < duration) {
             const progress = elapsedTime / duration;
-            // EaseOutQuad formula
             const currentCount = Math.floor(progress * (2 - progress) * target);
             el.innerText = currentCount;
             requestAnimationFrame(updateCount);
@@ -478,22 +471,18 @@
         requestAnimationFrame(updateCount);
       }
 
-      // 2. LOGIKA NATIF ACCORDION + ROTASI PANAH (UP/DOWN)
       const accordionButtons = document.querySelectorAll('.accordion-button');
-      
+
       accordionButtons.forEach(btn => {
         btn.addEventListener('click', function() {
           const targetId = this.getAttribute('data-accordion');
           const content = document.getElementById(targetId);
           const svgArrow = this.querySelector('svg');
-          
-          // Cek apakah panel sedang terbuka
+
           if (content.style.maxHeight) {
-            // Tutup panel, balikkan panah ke bawah (0deg)
             content.style.maxHeight = null;
             svgArrow.classList.remove('rotate-180');
           } else {
-            // Tutup panel lain yang sedang terbuka lebih dulu (Opsional/Sistem Tunggal)
             document.querySelectorAll('.accordion-content, [id^="accordion-faq-"]').forEach(el => {
               if (el.style.maxHeight) el.style.maxHeight = null;
             });
@@ -501,7 +490,6 @@
               svg.classList.remove('rotate-180');
             });
 
-            // Buka panel terpilih, putar panah ke atas (180deg)
             content.style.maxHeight = content.scrollHeight + "px";
             svgArrow.classList.add('rotate-180');
           }

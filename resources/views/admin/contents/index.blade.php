@@ -1,134 +1,94 @@
-@extends('admin.layouts.master')
-
-@section('title', 'Konten Website - ' . config('app.name'))
-
-@section('content_header')
-    <div class="row mb-2">
-        <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Konten Website</h1>
+<x-app-layout>
+    <x-slot name="header">
+        <div class="flex flex-row justify-between items-center">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Site Content') }}
+            </h2>
+            <a href="{{ route('admin.contents.create') }}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                Add New Content
+            </a>
         </div>
-        <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active">Konten Website</li>
-            </ol>
-        </div>
-    </div>
-@endsection
+    </x-slot>
 
-@section('content')
-    @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fas fa-check-circle mr-1"></i> {{ session('success') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
-    @if(session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <i class="fas fa-exclamation-circle mr-1"></i> {{ session('error') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
-    @forelse($sectionData as $sectionKey => $section)
-        @if($section['items']->count() > 0)
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <i class="fas fa-tag mr-1"></i>
-                        {{ $section['label'] }}
-                    </h3>
-                    <span class="badge badge-info float-right mt-1">{{ $section['items']->count() }} item</span>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if(session('success'))
+                <div class="mb-4 px-6 py-4 bg-green-100 border border-green-200 text-green-700 rounded-xl font-medium">
+                    <i class="fa-solid fa-check-circle mr-2"></i> {{ session('success') }}
                 </div>
-                <div class="card-body p-0">
-                    <table class="table table-hover">
+            @endif
+
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10">
+                <div class="mb-6">
+                    <p class="text-gray-500 text-sm">Manage text and image content for the landing page. Use the key-value pairs to override default content.</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
                         <thead>
-                            <tr>
-                                <th style="width: 300px;">Key</th>
-                                <th>Value</th>
-                                <th style="width: 120px;" class="text-center">Aksi</th>
+                            <tr class="border-b border-gray-200">
+                                <th class="pb-3 font-bold text-gray-600 uppercase text-xs tracking-wider">Key</th>
+                                <th class="pb-3 font-bold text-gray-600 uppercase text-xs tracking-wider">Value</th>
+                                <th class="pb-3 font-bold text-gray-600 uppercase text-xs tracking-wider">Type</th>
+                                <th class="pb-3 font-bold text-gray-600 uppercase text-xs tracking-wider">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($section['items'] as $content)
-                                @php
-                                    $val = $content->value ?? '';
-                                                        $isImage = str_starts_with($val, 'data:image/')
-                                                        || str_starts_with($val, 'http://')
-                                                        || str_starts_with($val, 'https://')
-                                                        || str_starts_with($val, 'assets/')
-                                                        || preg_match('/\.(jpg|jpeg|png|webp|svg|gif)$/i', $val)
-                                                        || (\Illuminate\Support\Facades\Storage::disk('public')->exists($val));
-                                    $isLongText = strlen($val) > 100;
-                                @endphp
-                                <tr>
-                                    <td class="align-middle">
-                                        <code class="text-dark">{{ $content->key }}</code>
-                                    </td>
-                                    <td class="align-middle">
-                                        @if($isImage)
-                                            @php
-                                                $imgSrc = $val;
-                                                if (str_starts_with($val, 'data:image/')) {
-                                                    $imgSrc = $val;
-                                                } elseif (str_starts_with($val, 'assets/')) {
-                                                    $imgSrc = asset($val);
-                                                } elseif (str_starts_with($val, 'http://') || str_starts_with($val, 'https://')) {
-                                                    $imgSrc = $val;
-                                                } else {
-                                                    try { $imgSrc = Storage::url($val); } catch (\Exception $e) { $imgSrc = $val; }
-                                                }
-                                            @endphp
-                                            <img src="{{ $imgSrc }}" alt="{{ $content->key }}"
-                                                 class="img-fluid rounded"
-                                                 style="max-height: 50px; max-width: 120px; object-fit: cover;"
-                                                 onerror="this.style.display='none'">
-                                            <span class="text-info small ml-2">
-                                                <i class="fas fa-image"></i> Image
-                                            </span>
-                                        @elseif($isLongText)
-                                            <span class="text-muted">{{ Str::limit($val, 80) }}</span>
-                                        @elseif(empty($val))
-                                            <span class="text-muted font-italic">(kosong)</span>
-                                        @else
-                                            {{ $val }}
-                                        @endif
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('admin.contents.edit', $content) }}"
-                                           class="btn btn-info btn-sm">
-                                            <i class="fas fa-edit"></i> Edit
+                            @forelse($contents as $content)
+                            <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
+                                <td class="py-4 pr-4">
+                                    <code class="text-sm bg-gray-100 px-2 py-1 rounded text-indigo-600 font-mono">{{ $content->key }}</code>
+                                </td>
+                                <td class="py-4 pr-4 max-w-xs">
+                                    @if(\Illuminate\Support\Str::startsWith($content->value, ['cms/', 'banners/', 'thumbnails/']))
+                                        <div class="flex items-center gap-3">
+                                            <img src="{{ Storage::url($content->value) }}" class="w-16 h-16 object-cover rounded-lg border">
+                                            <span class="text-sm text-gray-500 truncate">{{ basename($content->value) }}</span>
+                                        </div>
+                                    @else
+                                        <p class="text-sm text-gray-700 truncate">{{ $content->value ?? '-' }}</p>
+                                    @endif
+                                </td>
+                                <td class="py-4 pr-4">
+                                    @if(\Illuminate\Support\Str::startsWith($content->value, ['cms/', 'banners/', 'thumbnails/']))
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-700">Image</span>
+                                    @else
+                                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700">Text</span>
+                                    @endif
+                                </td>
+                                <td class="py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="{{ route('admin.contents.edit', $content->id) }}"
+                                           class="font-bold py-2 px-4 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 transition">
+                                            Edit
                                         </a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                        <form action="{{ route('admin.contents.destroy', $content->id) }}" method="POST"
+                                              onsubmit="return confirm('Delete this content entry?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="font-bold py-2 px-4 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="4" class="py-10 text-center text-gray-400">
+                                    <i class="fa-solid fa-inbox text-3xl mb-3 block"></i>
+                                    No content entries yet. Click "Add New Content" to get started.
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
-            </div>
-        @endif
-    @empty
-        <div class="card">
-            <div class="card-body text-center py-5">
-                <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
-                <p class="text-muted">Belum ada konten. Jalankan seeder untuk mengisi konten default.</p>
-                <a href="{{ route('dashboard') }}" class="btn btn-primary">
-                    <i class="fas fa-arrow-left mr-1"></i> Kembali ke Dashboard
-                </a>
+
+                <div class="mt-6">
+                    {{ $contents->links() }}
+                </div>
             </div>
         </div>
-    @endforelse
-@endsection
-
-@push('styles')
-<style>
-    .table td { vertical-align: middle; }
-    code { font-size: 13px; }
-    .card-header .badge { font-size: 12px; }
-</style>
-@endpush
+    </div>
+</x-app-layout>
