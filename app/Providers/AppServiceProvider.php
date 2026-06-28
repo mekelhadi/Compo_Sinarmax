@@ -37,6 +37,6 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        Vite::useCspNonce(fn () => request()->attributes->get('csp_nonce'));
+
     }
 }
