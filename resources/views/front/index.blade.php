@@ -17,15 +17,15 @@
               <input type="hidden" id="path_video" name="path_video" value="{{ $hero->path_video }}">
 
               <div class="inline-flex items-center bg-white px-4 py-2 gap-2 rounded-full border border-[#E8EAF2]">
-                <p class="font-semibold text-sm">{{ content('hero_achievement', app()->getLocale() === 'id' ? __('home.hero_achievement') : $hero->achievement) }}</p>
+                <p class="font-semibold text-sm">{{ $hero->achievement ?? content('hero_achievement', __('home.hero_achievement')) }}</p>
               </div>
 
               <div class="mt-4 space-y-3">
                 <h1 class="font-extrabold text-[34px] leading-[42px] md:text-[44px] md:leading-[56px]">
-                  {!! content('hero_heading', app()->getLocale() === 'id' ? __('home.hero_heading') : $hero->heading) !!}
+                  {!! $hero->heading ?? content('hero_heading', __('home.hero_heading')) !!}
                 </h1>
                 <p class="text-cp-light-grey leading-7 max-w-[520px]">
-                  {!! content('hero_subheading', app()->getLocale() === 'id' ? __('home.hero_subheading') : $hero->subheading) !!}
+                  {!! $hero->subheading ?? content('hero_subheading', __('home.hero_subheading')) !!}
                 </p>
               </div>
 
@@ -45,11 +45,17 @@
               <div class="rounded-2xl border border-[#E8EAF2] overflow-hidden bg-white shadow-sm hover:shadow-xl transition duration-500">
                 <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-[#F6F7FA]">
                   @php
-                    $heroBanner = content('hero_banner');
-                    $bannerExists = $heroBanner ? Storage::disk('public')->exists($heroBanner) : ($hero->banner && Storage::disk('public')->exists($hero->banner));
-                    $bannerUrl = $heroBanner && $bannerExists ? Storage::url($heroBanner) : ($hero->banner && Storage::disk('public')->exists($hero->banner) ? Storage::url($hero->banner) : asset('assets/Images/Team2.png'));
+                    $heroBannerUrl = $hero->banner && Storage::disk('public')->exists($hero->banner)
+                        ? Storage::url($hero->banner)
+                        : null;
+                    if (!$heroBannerUrl) {
+                        $heroContentBanner = content('hero_banner');
+                        $heroBannerUrl = $heroContentBanner && Storage::disk('public')->exists($heroContentBanner)
+                            ? Storage::url($heroContentBanner)
+                            : asset('assets/Images/Team2.png');
+                    }
                   @endphp
-                  <img src="{{ $bannerUrl }}"
+                  <img src="{{ $heroBannerUrl }}"
                        alt="{{ __('home.hero_alt') }}"
                        loading="lazy"
                        sizes="(min-width:1024px) 560px, 100vw"

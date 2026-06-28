@@ -96,6 +96,21 @@
 
                     </div>
 
+                    {{-- ABOUT --}}
+                    <div>
+
+                        <label class="font-semibold">
+
+                            About
+
+                        </label>
+
+                        <textarea name="about"
+                                  rows="5"
+                                  class="w-full border rounded-lg px-4 py-3 mt-2">{{ old('about', $product->about) }}</textarea>
+
+                    </div>
+
                     {{-- CHANGE IMAGE --}}
                     <div id="thumbnail">
 

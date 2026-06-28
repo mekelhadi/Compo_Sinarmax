@@ -65,8 +65,10 @@
 
                 <hr class="my-5">
 
-                <a href="" class="text-center font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
-                    Follow Up Customer
+                <a href="https://wa.me/62{{ ltrim($appointment->phone_number, '0') }}?text=Halo%20{{ urlencode($appointment->name) }},%20kami%20dari%20PT%20Abadi%20Banua%20Cemerlang%20ingin%20menindaklanjuti%20janji%20temu%20Anda."
+                   target="_blank"
+                   class="text-center font-bold py-4 px-6 bg-green-600 hover:bg-green-700 text-white rounded-full block transition">
+                    <i class="fab fa-whatsapp mr-2"></i> Follow Up via WhatsApp
                 </a>
 
             </div>

@@ -40,6 +40,7 @@
                                 <h3 class="text-indigo-950 text-xl font-bold">
                                     {{ $appointment->product->name ?? $appointment->other_product }}
                                 </h3>
+                                <p class="text-slate-500 text-sm">{{ $appointment->name }} &middot; {{ $appointment->email }}</p>
                             </div>
                         </div>
 
@@ -57,6 +58,12 @@
                             <a href="{{ route('admin.appointments.show', $appointment) }}"
                                class="font-bold py-3 px-6 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition">
                                 Details
+                            </a>
+
+                            {{-- BUTTON EDIT --}}
+                            <a href="{{ route('admin.appointments.edit', $appointment->id) }}"
+                               class="font-bold py-3 px-6 bg-amber-500 hover:bg-amber-600 text-white rounded-full transition">
+                                Edit
                             </a>
 
                             {{-- BUTTON DELETE --}}
