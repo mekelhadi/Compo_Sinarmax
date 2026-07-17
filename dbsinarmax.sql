@@ -473,7 +473,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'EranPlastindoComp', 'super@admin.com', NULL, '$2y$12$51Yo6zU1QE09QiQRqfPTxuEs5lrffhymXei4AG8a7Ktl514nPKtSK', NULL, '2025-10-20 06:21:17', '2025-10-20 06:21:17');
+(1, 'PT Abadi Banua Cemerlang', 'super@admin.com', NULL, '$2y$12$51Yo6zU1QE09QiQRqfPTxuEs5lrffhymXei4AG8a7Ktl514nPKtSK', NULL, '2025-10-20 06:21:17', '2025-10-20 06:21:17');
 
 --
 -- Indexes for dumped tables

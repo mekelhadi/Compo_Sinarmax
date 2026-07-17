@@ -24,7 +24,7 @@ class RolePermissionSeeder extends Seeder
             'manage teams',
             'manage abouts',
             'manage appointments',
-            'manage hero sections',
+            'manage hero_sections',
             'manage contents',
         ];
 

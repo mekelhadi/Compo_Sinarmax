@@ -39,7 +39,7 @@ class AppointmentController extends Controller
             $validated = $request->validated();
             Appointment::create($validated);
         });
-        return redirect()->route('front.appointment')->with('success', 'Appointment created successfully');
+        return redirect()->route('admin.appointments.index')->with('success', 'Appointment created successfully');
 
         
 

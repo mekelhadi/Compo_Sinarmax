@@ -10,5 +10,5 @@ Disallow: /register
 Disallow: /password
 
 # Sitemap location
-Sitemap: https://eranplastindoutama.co.id/sitemap.xml
+Sitemap: https://compro-sinarmax.vercel.app/sitemap.xml
 
